@@ -10,6 +10,8 @@ import Dropdown from "./components/Dropdown";
 import Upload from "./components/Upload";
 import Choices from "./components/Choices";
 import ReadyAlert from "./components/ReadyAlert";
+import Card from "./components/Card";
+
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       <Buscador />
       <Tarjeta />
       <TablaCuentas />
-      <Header/>
+      <Header />
       <Nav/>
       <Alert/>
       <Upload/>
@@ -26,6 +28,7 @@ function App() {
       <Dropdown/>
       <Choices/>
       <ReadyAlert/>
+      <Card/>
     </div>
   );
 }
