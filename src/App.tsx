@@ -4,6 +4,8 @@ import Tarjeta from "./components/Tarjeta";
 import TablaCuentas from "./components/TablaCuentas";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import Card from "./components/Card";
+
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
       <Buscador />
       <Tarjeta />
       <TablaCuentas />
-      <Header/>
+      <Header />
       <Nav/>
+      <Card />
+      
     </div>
   );
 }
