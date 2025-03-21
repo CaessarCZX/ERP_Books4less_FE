@@ -1,1 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body{
+    /* border: solid green; */
+    height: 100vh;
+}
+
+.principalContainer{
+    /* border: solid yellow; */
+    display: flex;
+    height: 100vh;
+}
+
+aside{
+    /* border: solid red; */
+    flex: 1;
+    
+}
+main{
+   /* border: solid blue; */
+   flex: 6;
+   padding-right: 20px;
+}
+
+    .dropzone{
+        width: 50%;
+        /* border: solid; */
+        margin: auto;
+        /* padding: 20px; */
+    }
