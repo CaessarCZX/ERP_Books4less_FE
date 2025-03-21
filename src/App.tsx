@@ -1,21 +1,20 @@
-import './styles/App.css'
-import Header from "./components/Header.tsx";
+import './styles/App.css';
+import Header from './components/Header.tsx';
 import AsideNav from './components/AsideNav.tsx';
-import DropZone from './components/DropZone.tsx';
+// import DropZone from './components/DropZone.tsx';
 import Formulario from './components/Formulario.tsx';
 
 function App() {
   return (
-    <div className='principalContainer'>   
+    <div className="principalContainer">
       <aside>
-        <AsideNav />  
+        <AsideNav />
       </aside>
       <main>
         <Header />
-        <DropZone />
+        {/* <DropZone /> */}
         <Formulario />
       </main>
-     
     </div>
   );
 }
