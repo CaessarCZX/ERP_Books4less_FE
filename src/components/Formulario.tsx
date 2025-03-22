@@ -1,7 +1,6 @@
 import '../styles/Formulario.css';
 import Input from './Input';
 
-
 import ComboBox from './ComboBox';
 
 const Formulario = () => {
