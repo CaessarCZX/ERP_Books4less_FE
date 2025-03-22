@@ -16,7 +16,7 @@ import Card from "./components/Card";
 function App() {
   return (
     <div>
-      <BotonMenu />
+      /* <BotonMenu />
       <Buscador />
       <Tarjeta />
       <TablaCuentas />

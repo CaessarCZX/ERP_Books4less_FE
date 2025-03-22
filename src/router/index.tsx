@@ -1,20 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+import { createBrowserRouter } from 'react-router-dom';
+import App from '../App';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [],
   },
   {
-    path: "/dashboard",
+    path: '/dashboard',
     element: <App />,
     errorElement: <h1>Not found</h1>,
     children: [],
   },
   {
-    path: "*",
+    path: '*',
     element: <h1>Not found</h1>,
   },
 ]);
