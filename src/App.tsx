@@ -1,7 +1,7 @@
 import './styles/App.css';
 import Header from './components/Header.tsx';
 import AsideNav from './components/AsideNav.tsx';
-// import DropZone from './components/DropZone.tsx';
+import DropZone from './components/DropZone.tsx';
 import Formulario from './components/Formulario.tsx';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       </aside>
       <main>
         <Header />
-        {/* <DropZone /> */}
+        <DropZone />
         <Formulario />
       </main>
     </div>

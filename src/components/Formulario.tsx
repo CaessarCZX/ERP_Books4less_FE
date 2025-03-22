@@ -1,51 +1,43 @@
 import '../styles/Formulario.css';
 import Input from './Input';
 
-const sections = [
-  {
-    title: 'Información del Reporte',
-    inputs: [
-      'Información de la orden de compra',
-      'Fecha de la orden de compra',
-    ],
-  },
-  {
-    title: 'Información del Vendedor',
-    inputs: [
-      'Nombre del vendedor',
-      'P.O del vendedor',
-      'Dirección del vendedor',
-    ],
-  },
-  {
-    title: 'Información del Envío',
-    inputs: [
-      'Nombre de la empresa',
-      'Dirección de la empresa',
-      'Datos de la empresa',
-    ],
-  },
-  {
-    title: 'Información Empresarial',
-    inputs: ['Metodo del envio', 'Terminos de pago'],
-  },
-];
+
+import ComboBox from './ComboBox';
 
 const Formulario = () => {
   return (
     <>
       <div className="formularioContainer">
-        <form action="">
-          {sections.map((section, index) => (
-            <fieldset key={index} className="">
-              <legend className="font-semibold text-lg">{section.title}</legend>
-              <div className="flex gap-4">
-                {section.inputs.map((label, i) => (
-                  <Input key={i} label={label} />
-                ))}
-              </div>
-            </fieldset>
-          ))}
+        <form action="" className="flex   gap-6.5 flex-col">
+          <fieldset className="flex   gap-40 m-3">
+            <legend>Información del Reporte</legend>
+            <Input />
+            <Input />
+          </fieldset>
+          <fieldset className="flex gap-40">
+            <legend>Información del vendedor</legend>
+            <ComboBox />
+            <Input />
+            <Input />
+          </fieldset>
+          <fieldset className="flex gap-40">
+            <legend>Información del envio</legend>
+            <ComboBox />
+            <Input />
+            <Input />
+          </fieldset>
+          <fieldset className="flex gap-40">
+            <legend>Información Empresarial</legend>
+            <Input />
+            <Input />
+          </fieldset>
+          <fieldset className="botonesContainer  flex justify-between items-center ">
+            <Input />
+            <div className="flex gap-10">
+              <button className="botonPdf">Exportar PDF</button>
+              <button className="botonCsv">Exportar CSV</button>
+            </div>
+          </fieldset>
         </form>
       </div>
     </>

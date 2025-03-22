@@ -27,8 +27,8 @@ main{
 }
 
     .dropzone{
-        width: 50%;
+        width: 55%;
         /* border: solid; */
-        margin: auto;
+        
         /* padding: 20px; */
     }

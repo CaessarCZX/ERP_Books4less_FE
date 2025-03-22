@@ -1,5 +1,45 @@
 .formularioContainer{
-    border: solid red;
+    /* border: solid red; */
     /* display: flex; */
-    
+    margin-top: 25px;
+}
+
+input{
+    border: 2px solid rgba(0, 0, 0, 0.808);
+}
+
+input::placeholder {
+    color: #969595 ; /* Cambia el color del placeholder */
+    opacity: 1; /* Asegura que sea visible */
+}
+
+
+.botonesContainer{
+    width: 88%;
+}
+
+
+    .botonPdf, .botonCsv{
+        /* border: solid; */
+        padding: 22px;
+        width: 200px;
+        border-radius: 100px;
+        color: white;
+    }
+
+    .botonPdf{
+        background-color: rgb(231, 50, 50);
+    }
+
+    .botonCsv{
+        background-color: rgb(15, 160, 15);
+    }
+
+.botonMultiple:focus,
+.botonMultiple:active{
+    height: auto;
+}
+
+.botonMultipleMultiple:focus{
+    height: auto;
 }
