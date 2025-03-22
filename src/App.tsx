@@ -3,7 +3,7 @@ import Buscador from "./components/Buscador";
 import Tarjeta from "./components/Tarjeta";
 import TablaCuentas from "./components/TablaCuentas";
 import Header from "./components/Header";
-import Nav from "./components/Nav";
+import Nav from "./pages/login/components/Navbar";
 import Alert from "./components/Alert";
 import Button from "./components/Button"
 import Dropdown from "./components/Dropdown";
