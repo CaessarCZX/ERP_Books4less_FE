@@ -4,31 +4,32 @@
     box-sizing: border-box;
 }
 
-body{
-    /* border: solid green; */
-    height: 100vh;
-}
 
 .principalContainer{
     /* border: solid yellow; */
     display: flex;
-    height: 100vh;
 }
 
-aside{
-    /* border: solid red; */
-    flex: 1;
-    
-}
-main{
-   /* border: solid blue; */
-   flex: 6;
-   padding-right: 20px;
-}
+    /* aside{
+            border: solid red;
+    } */
 
-    .dropzone{
-        width: 55%;
-        /* border: solid; */
-        
-        /* padding: 20px; */
+    main{
+        /* border: solid green; */
+        width: 100%;
+        padding: 0px 20px 0 20px;
     }
+
+/* Disenio para moviles */
+@media (max-width: 480px) {
+    .asideNav{
+        position: fixed;
+    }
+} 
+
+/* Disenio para tabletas */
+@media (min-width: 481px) and (max-width: 1200px) {
+    .asideNav{
+        position: fixed;
+    }
+}

@@ -1,10 +1,8 @@
-import '../styles/App.css';
-
-const DropZone = () => {
+const DropZoneUpload = () => {
   return (
     <>
-      <div className="dropzone lg:w-235 my-4">
-        <div className="relative  w-full ">
+      <div className="flex justify-center w-full   my-4">
+        <div className="relative  w-250">
           <div className="items-center  justify-center  mx-auto">
             <label
               className="flex p-6 justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none"
@@ -47,4 +45,4 @@ const DropZone = () => {
   );
 };
 
-export default DropZone;
+export default DropZoneUpload;
