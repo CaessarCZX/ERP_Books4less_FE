@@ -1,5 +1,3 @@
-import '../styles/Formulario.css';
-
 const ComboBox = () => {
   return (
     <>
