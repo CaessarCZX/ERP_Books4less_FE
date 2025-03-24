@@ -22,10 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-<<<<<<< HEAD
   "include": ["src"]
 }*/
-=======
-  "include": ["src"]
-}
->>>>>>> dev-miguel
