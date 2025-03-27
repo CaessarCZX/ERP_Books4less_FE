@@ -1,14 +1,11 @@
 import './styles/App.css';
 import { Outlet } from 'react-router-dom';
 
-import AsideNav from './components/AsideNav.tsx';
+// import AsideNav from './components/AsideNav.tsx';
 
 function App() {
   return (
-    <div className="principalContainer">
-      <aside>
-        <AsideNav />
-      </aside>
+    <div>
       <main>
         <Outlet />
       </main>
