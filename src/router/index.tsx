@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Login from '../pages/login/Login';
 // import Header from '../components/Header';
 import DefaultLayout from '../Layouts/DefaultLayout/DefaultLayout';
+import GeneratorPO from '../pages/GeneratePO/Generator';
 // import Dashboard from '../pages/dashboard/Dashboard';
 // import Tables from '../pages/tables/Tables';
 // import TableFile from '../pages/tableFiles/TableFiles';
@@ -11,7 +12,7 @@ import DefaultLayout from '../Layouts/DefaultLayout/DefaultLayout';
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <DefaultLayout />,
+    element: <h1>Home</h1>,
     // children: [
     //   {
     //     path: '/dashboard',
@@ -32,10 +33,15 @@ export const router = createBrowserRouter([
     // ],
   },
   {
-    path: '/dashboard',
-    element: <Login />,
+    path: '/system',
+    element: <DefaultLayout />,
     errorElement: <h1>Not found</h1>,
-    children: [],
+    children: [
+      {
+        path: '/systemGeneratePO',
+        element: <GeneratorPO />,
+      },
+    ],
   },
   {
     path: '/login',

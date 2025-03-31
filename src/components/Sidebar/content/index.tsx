@@ -5,7 +5,7 @@ const IconSettings = 'group-hover:fill-white fill-black';
 
 const MenuItems: ISedebarItem[] = [
   {
-    title: 'Purchase Order Gen.',
+    title: 'Purchase Order Generator',
     url: '/dashboard',
     icon: <IoIosDocument className={IconSettings} />,
   },

@@ -14,14 +14,15 @@ interface Props {
 
 const Breadcumb: FC<Props> = ({ currentPage, iconSection }) => {
   return (
-    <nav>
-      {/* <!-- breadcrumb --> */}
+    <nav className="ml-4">
       <ol className="mr-12 flex flex-wrap rounded-lg bg-transparent pt-1 sm:mr-16">
         <li className="breadcrumb-item text-sm leading-normal">
           {iconSection && ENUM_STATUSES[iconSection]}
         </li>
         <li className="pl-2 text-sm leading-normal before:float-left before:pr-2 before:text-gray-600 before:content-['/']">
-          <a className="text-slate-700 opacity-50 dark:text-white">Pages</a>
+          <a className="text-slate-700 opacity-50 dark:text-white">
+            Application
+          </a>
         </li>
         <li
           className="pl-2 text-sm leading-normal text-slate-700 capitalize before:float-left before:pr-2 before:text-gray-600 before:content-['/'] dark:text-white dark:before:text-white"
@@ -30,7 +31,7 @@ const Breadcumb: FC<Props> = ({ currentPage, iconSection }) => {
           {currentPage}
         </li>
       </ol>
-      <h6 className="mb-0 font-bold capitalize dark:text-white">
+      <h6 className="mb-0 font-bold text-slate-700 capitalize dark:text-white">
         {currentPage}
       </h6>
     </nav>

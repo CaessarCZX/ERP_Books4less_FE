@@ -1,12 +1,12 @@
 const ComboBox = () => {
   return (
     <>
-      <div className="flex  dark:bg-gray-800">
-        <div className="bg-white d shadow-md rounded px-1 py-2">
+      <div className="flex dark:bg-gray-800">
+        <div className="d rounded bg-white px-1 py-2 shadow-md">
           <div className="flex flex-col">
             <label
               htmlFor="text"
-              className="text-base font-medium text-black dark:text-gray-300 mb-2"
+              className="mb-2 text-base font-medium text-black dark:text-gray-300"
             >
               Input
             </label>
@@ -20,7 +20,7 @@ const ComboBox = () => {
               required
               minLength={5}
               maxLength={100}
-              className="botonMultiple text-sm w-90 leading-none font-medium  rounded-3 px-3 py-2 focus:outline-none focus:border-blue-500 dark:focus:border-white dark:bg-gray-800 dark:text-white"
+              className="botonMultiple rounded-3 w-90 px-3 py-2 text-sm leading-none font-medium focus:border-blue-500 focus:outline-none dark:bg-gray-800 dark:text-white dark:focus:border-white"
             />
 
             <datalist className="botonMultipleMultiple" id="drawfemails">
