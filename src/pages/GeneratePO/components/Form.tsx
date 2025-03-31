@@ -1,12 +1,16 @@
 // import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+import { FormEventHandler } from 'react';
 import { Button } from '../../../components/UI/Button';
 import InputField from '../../../components/UI/Input/InputField';
 import { FormContent } from '../content';
+import PercentageSelector from './PercentageSelector';
 
 const Form = () => {
+  const handleSubmit: FormEventHandler = (e) => e.preventDefault();
+
   return (
     <>
-      <form className="flex flex-col gap-6.5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6.5">
         {FormContent.map((formSection) => {
           const sectionName = formSection.sectionName;
           const sectionContent = formSection.content;
@@ -32,12 +36,12 @@ const Form = () => {
           );
         })}
         <fieldset className="flex items-center justify-between md:flex-wrap">
-          <InputField
-            label="Porcentaje de descuento"
-            type="number"
-            id="por-desc"
-            name="por-d"
-          />
+          <div className="flex flex-col">
+            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+              Discount Percentage
+            </label>
+            <PercentageSelector />
+          </div>
           <div className="flex gap-5">
             <Button variant="black">Download PDF</Button>
             <Button variant="outlineBlack">Download CSV</Button>
