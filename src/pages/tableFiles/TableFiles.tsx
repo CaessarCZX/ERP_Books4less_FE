@@ -1,49 +1,46 @@
-import Header from '../../components/Header';
-
 const TableFile = () => {
   return (
     <>
-    <Header />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-8"> Files Listing</h1>
+        <h1 className="mb-8 text-center text-3xl font-bold"> Files Listing</h1>
 
         {/* <!-- Search and Add User (Static) --> */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <div className="w-full md:w-1/3 mb-4 md:mb-0">
+        <div className="mb-6 flex flex-col items-center justify-between md:flex-row">
+          <div className="mb-4 w-full md:mb-0 md:w-1/3">
             <input
               type="text"
               placeholder="Search users..."
-              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
           </div>
           <a href="https://abhirajk.vercel.app/" target="blank">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+            <button className="rounded-md bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600">
               Add New User
             </button>
           </a>
         </div>
 
         {/* <!-- User Table --> */}
-        <div className="overflow-x-auto bg-white rounded-lg shadow">
+        <div className="overflow-x-auto rounded-lg bg-white shadow">
           <table className="w-full table-auto">
             <thead>
-              <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                <th className="py-3 px-6 text-left">Type</th>
-                <th className="py-3 px-6 text-left">Description</th>
-                <th className="py-3 px-6 text-left">Data Release</th>
-                <th className="py-3 px-6 text-left">Size</th>
-                <th className="py-3 px-6 text-center">Adjuntos</th>
+              <tr className="bg-gray-200 text-sm leading-normal text-gray-600 uppercase">
+                <th className="px-6 py-3 text-left">Type</th>
+                <th className="px-6 py-3 text-left">Description</th>
+                <th className="px-6 py-3 text-left">Data Release</th>
+                <th className="px-6 py-3 text-left">Size</th>
+                <th className="px-6 py-3 text-center">Adjuntos</th>
               </tr>
             </thead>
-            <tbody className="text-gray-600 text-sm">
+            <tbody className="text-sm text-gray-600">
               <tr className="border-b border-gray-200 hover:bg-gray-100">
-                <td className="py-3 px-6 text-left">PDF</td>
-                <td className="py-3 px-6 text-left">Abhiraj k</td>
-                <td className="py-3 px-6 text-left">12/02/2025</td>
-                <td className="py-3 px-6 text-left">12mb</td>
-                <td className="py-3 px-6 text-center">
-                  <div className="flex item-center justify-center">
-                    <button className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110">
+                <td className="px-6 py-3 text-left">PDF</td>
+                <td className="px-6 py-3 text-left">Abhiraj k</td>
+                <td className="px-6 py-3 text-left">12/02/2025</td>
+                <td className="px-6 py-3 text-left">12mb</td>
+                <td className="px-6 py-3 text-center">
+                  <div className="item-center flex justify-center">
+                    <button className="mr-2 w-4 transform hover:scale-110 hover:text-blue-500">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -58,7 +55,7 @@ const TableFile = () => {
                         />
                       </svg>
                     </button>
-                    <button className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                    <button className="mr-2 w-4 transform hover:scale-110 hover:text-red-500">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -81,7 +78,7 @@ const TableFile = () => {
         </div>
 
         {/* <!-- Static Pagination --> */}
-        <div className="flex justify-between items-center mt-6">
+        <div className="mt-6 flex items-center justify-between">
           <div>
             <span className="text-sm text-gray-700">
               Showing 1 to 5 of 5 entries
@@ -89,12 +86,12 @@ const TableFile = () => {
           </div>
           <div className="flex space-x-2">
             <a href="https://abhirajk.vercel.app/" target="blank">
-              <button className="px-3 py-1 rounded-md bg-gray-200 text-gray-700 opacity-50">
+              <button className="rounded-md bg-gray-200 px-3 py-1 text-gray-700 opacity-50">
                 Previous
               </button>
             </a>
             <a href="https://abhirajk.vercel.app/" target="blank">
-              <button className="px-3 py-1 rounded-md bg-gray-200 text-gray-700 opacity-50">
+              <button className="rounded-md bg-gray-200 px-3 py-1 text-gray-700 opacity-50">
                 Next
               </button>
             </a>

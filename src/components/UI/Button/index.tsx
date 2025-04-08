@@ -1,9 +1,24 @@
 import { ButtonHTMLAttributes, FC } from 'react';
 
+type ButtonVariant =
+  | 'default'
+  | 'color'
+  | 'outlineColor'
+  | 'black'
+  | 'outlineBlack';
+
+/**
+ * IMPORTANT: The 'disabled:' directive was not used because
+ * the component uses a gradient background that affects the
+ * behavior of the disabled component.
+ */
+
 interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'color' | 'outlineColor' | 'black' | 'outlineBlack';
+  variant?: ButtonVariant;
   className?: string;
   fullWidth?: boolean;
+  disabled?: boolean;
+  noMargin?: boolean;
 }
 
 export const Button: FC<BtnProps> = ({
@@ -11,35 +26,85 @@ export const Button: FC<BtnProps> = ({
   className,
   fullWidth = false,
   variant = 'default',
+  disabled = false,
+  noMargin = false,
   ...props
 }) => {
   const baseStyles = `
-    inline-flex justify-center items-center px-4 py-3 mb-2 font-bold text-center uppercase align-middle transition-all border border-solid rounded-lg cursor-pointer hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro text-xs ease-soft-in tracking-tight shadow-soft-md
-    ${fullWidth && 'w-full'}
+    inline-flex
+    justify-center
+    items-center
+    px-4
+    py-3
+    font-bold
+    text-center
+    uppercase
+    align-middle
+    transition-all
+    border
+    border-solid
+    rounded-lg
+    hover:shadow-soft-xs
+    active:opacity-85
+    leading-pro
+    text-xs
+    ease-soft-in
+    tracking-tight
+    shadow-soft-md;
+    ${fullWidth ? 'w-full' : ''}
+    ${disabled ? 'cursor-forbidden hover:scale-100' : 'cursor-pointer hover:scale-102'}
+    ${noMargin ? '' : 'mb-2'}
   `;
 
   const variantStyles = {
     default: '',
     color: `
-      bg-gradient-to-tl from-purple-700 to-pink-500 text-white border-transparent
-      xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-purple-700 xl-max:to-pink-500 xl-max:text-white xl-max:border-0
-      bg-fuchsia-500 hover:border-fuchsia-500
+      text-white
+      border-transparent
+      ${
+        disabled
+          ? `bg-gray-400 dark:bg-gray-600`
+          : 'bg-gradient-to-tl from-purple-700 to-pink-500 bg-fuchsia-500 hover:border-fuchsia-500'
+      }
     `,
     outlineColor: `
-      bg-transparent text-fuchsia-500 border-fuchsia-500 bg-none
-      xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-purple-700 xl-max:to-pink-500 xl-max:text-white xl-max:border-0
+      bg-none
+      ${
+        disabled
+          ? 'border-gray-400 dark:border-gray-600'
+          : 'bg-transparent text-fuchsia-500 border-fuchsia-500'
+      }
     `,
     black: `
-      mb-4 border-0 bg-transparent bg-gradient-to-tl from-gray-900 to-slate-800 px-6 py-3 text-white
+      border-0
+      px-6
+      py-3
+      text-white
+      ${
+        disabled
+          ? 'bg-gray-400 dark:bg-gray-600 hover:border-none'
+          : 'bg-transparent bg-gradient-to-tl from-gray-900 to-slate-800'
+      }
     `,
     outlineBlack: `
-      mb-4 border border-solid border-slate-700 bg-transparent px-6 py-3 text-slate-700 shadow-none hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none
+      border
+      bg-transparent
+      px-6
+      py-3
+      shadow-none
+      hover:bg-transparent
+      hover:shadow-none
+      ${
+        disabled
+          ? 'text-gray-400 dark:text-gray-600 border-gray-400 dark:border-gray-600 hover:text-gray-400 dark:hover:text-gray-600'
+          : 'border-solid border-slate-700 text-slate-700 hover:text-slate-700'
+      }
     `,
   };
 
   return (
     <button
-      className={`${baseStyles} ${variantStyles[variant]} ${className || ''}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${className || ''} disabled:cursor-forbidden`}
       {...props}
     >
       {children}

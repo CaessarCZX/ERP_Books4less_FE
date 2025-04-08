@@ -19,9 +19,9 @@ const InputField: FC<InputFieldProps> = ({
   //For validation feedback border
   const borderClass =
     validationState === 'success'
-      ? 'border-green-500 focus:border-green-500'
+      ? 'border-green-500 focus:border-green-500 shadow-soft-verified-outline'
       : validationState === 'error'
-        ? 'border-red-500 focus:border-red-500'
+        ? 'border-red-500 focus:border-red-500 shadow-soft-error-outline'
         : CommonBorder;
   return (
     <div className="flex flex-col">

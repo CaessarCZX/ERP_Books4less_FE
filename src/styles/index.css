@@ -9,6 +9,8 @@
   --shadow-soft-3xl: 0 8px 26px -4px hsla(0,0%,8%,0.15), 0 8px 9px -5px hsla(0,0%,8%,0.06);
   --shadow-soft-lg: 0 2px 12px 0 rgba(0,0,0,0.16);
   --shadow-soft-primary-outline: 0 0 0 2px #e9aede;
+  --shadow-soft-verified-outline: 0 0 0 2px #04c282;
+  --shadow-soft-error-outline: 0 0 0 2px #f26e6b;
 }
 
 :root {

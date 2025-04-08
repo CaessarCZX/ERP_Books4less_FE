@@ -1,20 +1,23 @@
-import { ReactNode } from 'react';
+import {
+  PurchaseOrderFormFieldNames,
+  PurchaseOrderFormFields,
+  IFields,
+  IForm,
+} from '../Models/generate-po-model';
 
-interface IForm {
-  sectionName: string;
-  content: IFields[];
-  key: number;
-}
-
-interface IFields {
-  icon?: ReactNode;
-  label: string;
-  type: string;
-  name: string;
-  id: string;
-  placeholder?: string;
-  key: number;
-}
+export const FormFieldsDefaultValues: PurchaseOrderFormFields = {
+  [PurchaseOrderFormFieldNames.purchaseOrderInformation]: '',
+  [PurchaseOrderFormFieldNames.purchaseOrderDate]: new Date(),
+  [PurchaseOrderFormFieldNames.sellerName]: '',
+  [PurchaseOrderFormFieldNames.sellerPO]: '',
+  [PurchaseOrderFormFieldNames.sellerAddress]: '',
+  [PurchaseOrderFormFieldNames.enterpriseName]: '',
+  [PurchaseOrderFormFieldNames.enterpriseAddress]: '',
+  [PurchaseOrderFormFieldNames.enterpriseData]: '',
+  [PurchaseOrderFormFieldNames.shippingMethod]: '',
+  [PurchaseOrderFormFieldNames.paymentTerms]: '',
+  [PurchaseOrderFormFieldNames.discountPercent]: 0,
+};
 
 export const FormContent: IForm[] = [
   {
@@ -23,7 +26,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Purchase Order Information',
         type: 'text',
-        name: 'po-inf',
+        name: PurchaseOrderFormFieldNames.purchaseOrderInformation,
         id: 'po-i',
         placeholder: '',
         key: 11,
@@ -31,7 +34,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Purchase Order Date',
         type: 'date',
-        name: 'po-date',
+        name: PurchaseOrderFormFieldNames.purchaseOrderDate,
         id: 'po-d',
         placeholder: '',
         key: 12,
@@ -45,7 +48,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Seller name',
         type: 'text',
-        name: 'sell-nam',
+        name: PurchaseOrderFormFieldNames.sellerName,
         id: 'sell-n',
         placeholder: '',
         key: 13,
@@ -53,7 +56,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Seller P.O',
         type: 'text',
-        name: 'sell-po',
+        name: PurchaseOrderFormFieldNames.sellerPO,
         id: 'sell-p',
         placeholder: '',
         key: 14,
@@ -61,7 +64,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Seller address',
         type: 'text',
-        name: 'sell-addr',
+        name: PurchaseOrderFormFieldNames.sellerAddress,
         id: 'sell-a',
         placeholder: '',
         key: 15,
@@ -75,7 +78,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Enterprise name',
         type: 'text',
-        name: 'ship-nam',
+        name: PurchaseOrderFormFieldNames.enterpriseName,
         id: 'ship-n',
         placeholder: '',
         key: 16,
@@ -83,7 +86,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Enterprise address',
         type: 'text',
-        name: 'ship-addr',
+        name: PurchaseOrderFormFieldNames.enterpriseAddress,
         id: 'ship-a',
         placeholder: '',
         key: 17,
@@ -91,7 +94,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Enterprise data',
         type: 'text',
-        name: 'ship-dat',
+        name: PurchaseOrderFormFieldNames.enterpriseData,
         id: 'ship-d',
         placeholder: '',
         key: 18,
@@ -105,7 +108,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Shipping method',
         type: 'text',
-        name: 'ent-ship',
+        name: PurchaseOrderFormFieldNames.shippingMethod,
         id: 'ent-s',
         placeholder: '',
         key: 19,
@@ -113,7 +116,7 @@ export const FormContent: IForm[] = [
       {
         label: 'Payment terms',
         type: 'text',
-        name: 'ent-pt',
+        name: PurchaseOrderFormFieldNames.paymentTerms,
         id: 'ent-p',
         placeholder: '',
         key: 20,
@@ -122,3 +125,13 @@ export const FormContent: IForm[] = [
     key: 1286896,
   },
 ];
+
+export const FormContentPercentage: IFields & { step: string } = {
+  label: 'Discount Percentage %',
+  type: 'number',
+  step: '0.01',
+  name: PurchaseOrderFormFieldNames.discountPercent,
+  id: 'dis-per',
+  placeholder: '',
+  key: 21,
+};

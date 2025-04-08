@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Note that's shadow-soft-prymary is a custom var for this project
 export const CommonBorder =
   'border-gray-300 focus:border-fuchsia-300 focus:shadow-soft-primary-outline dark:border-gray-200 dark:focus:border-fuchsia-300';
 
