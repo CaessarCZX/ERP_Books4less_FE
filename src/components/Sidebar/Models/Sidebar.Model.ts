@@ -1,7 +1,10 @@
-import { ReactNode } from 'react';
+import { FC } from 'react';
+
+export type Icon = FC<React.ComponentProps<'svg'>>;
 
 export interface ISedebarItem {
   url: string;
-  icon: ReactNode;
+  path: string;
+  icon: Icon;
   title: string;
 }

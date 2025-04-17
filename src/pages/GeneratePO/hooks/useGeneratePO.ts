@@ -15,15 +15,12 @@ export const useGeneratePO = () => {
       const formData = new PurchaseOrderService(data).generateFormData();
       const res = await mutation.mutateAsync(formData);
       setSuccess(res.message || 'Purchase Order generated successfully.');
-      const purchaseOrder = PurchaseOrderService.getPurchaseOrderLinks({
-        pdf: res.pdf,
-        csv: res.csv,
-      });
+      const purchaseOrder = PurchaseOrderService.getPurchaseOrderLinks(res);
       return purchaseOrder;
     } catch (e: unknown) {
       if (e instanceof AxiosError) {
         setError(
-          e.response?.data?.message ||
+          e.response?.data?.error ||
             e.message ||
             'An error occurred while generating the purchase order.'
         );

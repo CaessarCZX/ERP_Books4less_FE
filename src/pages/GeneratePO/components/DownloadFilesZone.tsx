@@ -9,7 +9,7 @@ interface Props {
 const DownloadFilesZone: FC<Props> = ({ purchaseOrderInfo }) => {
   return (
     <div className="w-full">
-      <div className="mt-7 flex gap-5">
+      <div className="mt-7 flex justify-center gap-5">
         <a href={purchaseOrderInfo?.pdf} target="_blank">
           <Button noMargin variant="black">
             Download PDF

@@ -28,14 +28,12 @@ class PurchaseOrderService {
   }
 
   static getPurchaseOrderLinks(
-    purchaseOrderGenerated: PurchaseOrderGenerated
+    purchaseOrderResponse: IPurchaseOrderResponse
   ): PurchaseOrderGenerated {
-    const { pdf, csv } = purchaseOrderGenerated;
-    const DOWNLOAD_PDF = '/download/pdf';
-    const DOWNLOAD_CSV = '/download/csv';
+    const { pdf, csv } = purchaseOrderResponse.download_links;
     return {
-      pdf: `${serverURL}${DOWNLOAD_PDF}?filename=${pdf}`,
-      csv: `${serverURL}${DOWNLOAD_CSV}?filename=${csv}`,
+      pdf: `${serverURL}${pdf}`,
+      csv: `${serverURL}${csv}`,
     };
   }
 

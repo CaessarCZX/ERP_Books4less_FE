@@ -50,27 +50,29 @@ export interface IPurchaseOrder {
   files: File[];
 }
 
-interface RenamedFiles {
-  original: string;
-  new: string;
-  reason: string;
-}
-
 interface UpdatedFiles {
   original_name: string;
   stored_name: string;
 }
 
-export interface IPurchaseOrderResponse {
-  message: string;
-  uploaded_files: UpdatedFiles;
-  renamed_files: RenamedFiles;
-  csv: string;
-  pdf: string;
-  errors: string;
+interface ComparisonResults {
+  total_reference_items: number;
+  matched_items_count: number;
+  unmatched_items: [];
+  total_processed_items: number;
+  match_percentage: number;
 }
 
 export interface PurchaseOrderGenerated {
   pdf: string;
   csv: string;
+}
+
+export interface IPurchaseOrderResponse {
+  message: string;
+  processing_time_seconds: number;
+  download_links: PurchaseOrderGenerated;
+  uploaded_files: UpdatedFiles[];
+  comparison_results: ComparisonResults;
+  errors: string;
 }

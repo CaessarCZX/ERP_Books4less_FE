@@ -17,7 +17,6 @@ interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   className?: string;
   fullWidth?: boolean;
-  disabled?: boolean;
   noMargin?: boolean;
 }
 
@@ -26,7 +25,7 @@ export const Button: FC<BtnProps> = ({
   className,
   fullWidth = false,
   variant = 'default',
-  disabled = false,
+  disabled,
   noMargin = false,
   ...props
 }) => {
@@ -52,7 +51,7 @@ export const Button: FC<BtnProps> = ({
     tracking-tight
     shadow-soft-md;
     ${fullWidth ? 'w-full' : ''}
-    ${disabled ? 'cursor-forbidden hover:scale-100' : 'cursor-pointer hover:scale-102'}
+    ${disabled ? 'cursor-forbidden hover:scale-102' : 'cursor-pointer hover:scale-102'}
     ${noMargin ? '' : 'mb-2'}
   `;
 
@@ -105,6 +104,7 @@ export const Button: FC<BtnProps> = ({
   return (
     <button
       className={`${baseStyles} ${variantStyles[variant]} ${className || ''} disabled:cursor-forbidden`}
+      disabled={disabled}
       {...props}
     >
       {children}

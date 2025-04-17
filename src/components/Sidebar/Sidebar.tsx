@@ -4,6 +4,7 @@ import content from './content';
 import { Link } from 'react-router-dom';
 import ClickOutside from '../ClickOutside';
 import Logo from '../../assets/logo/logo.svg';
+import { usePathname } from '../Header/Hooks/usePathname';
 
 interface Props {
   sidebarOpen: boolean;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
+  const currentPath = usePathname();
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
@@ -48,6 +50,8 @@ const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
                 key={index}
                 title={item.title}
                 url={item.url}
+                path={item.path}
+                currentParam={currentPath}
                 icon={item.icon}
               />
             ))}

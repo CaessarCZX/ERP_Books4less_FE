@@ -6,7 +6,7 @@ import {
 import { SubmitHandler, FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import schema from '../schemas/POG-form-schema';
-import InputForm from './InputForm';
+import InputForm from '../../../components/UI/Input/InputForm';
 import { useGeneratePO } from '../hooks/useGeneratePO';
 import { Button } from '../../../components/UI/Button';
 import { useFiles } from '../../../components/DropZone/hooks/useFiles';
@@ -14,38 +14,46 @@ import {
   PurchaseOrderFormFields,
   PurchaseOrderGenerated,
 } from '../Models/generate-po-model';
-import { FilesValidatorService } from '../services/files-validator-service';
+import { FilesValidatorService } from '../../../services/files-validator-service';
 import { useState } from 'react';
-import SuccessModal from './SuccessModal';
+import SuccessModal from '../../../components/UI/Modal';
 import { useStateModal } from '../../../hooks/useStateModal';
 import DownloadFilesZone from './DownloadFilesZone';
+import { RootState } from '../../../context/store';
+import { useSelector } from 'react-redux';
 
 const Form = () => {
+  const userId = useSelector((state: RootState) => state.user.id);
   const [purchaseOrder, setPurchaseOrder] = useState<PurchaseOrderGenerated>();
   const { modalRef, openModal, closeModal } = useStateModal();
-  const { generatePO } = useGeneratePO();
-  const { files } = useFiles();
+  const { generatePO, mutation } = useGeneratePO();
+  const { files, clearFiles } = useFiles();
   const methods = useForm({
     defaultValues: FormFieldsDefaultValues,
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
 
+  const resetForms = () => {
+    methods.reset();
+    clearFiles();
+  };
+
   const onSubmit: SubmitHandler<PurchaseOrderFormFields> = async (data) => {
     const isValidFile = new FilesValidatorService(files).validateFiles();
     if (!isValidFile) return;
-    const result = await generatePO({ data, files, userId: '12' });
+    openModal();
+    const result = await generatePO({ data, files, userId });
     if (!result) return;
     setPurchaseOrder(result);
-    console.log(purchaseOrder); // debug
-    openModal();
+    resetForms();
   };
 
   return (
     <FormProvider {...methods}>
       <form
         onSubmit={methods.handleSubmit(onSubmit)}
-        className="flex flex-col gap-6.5"
+        className="flex flex-col"
         method="post"
       >
         {FormContent.map((formSection) => {
@@ -91,10 +99,16 @@ const Form = () => {
         </fieldset>
       </form>
       <SuccessModal
+        isLoading={mutation.isPending}
         showModal={modalRef}
         closeModal={closeModal}
+        isSuccess={mutation.isSuccess}
         title="Purchase Order Generated Successfully"
-        content={<DownloadFilesZone purchaseOrderInfo={purchaseOrder} />}
+        content={
+          mutation.isSuccess && (
+            <DownloadFilesZone purchaseOrderInfo={purchaseOrder} />
+          )
+        }
       />
     </FormProvider>
   );
