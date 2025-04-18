@@ -18,7 +18,7 @@ const FilesHistory = () => {
         <DotsLoader />
       ) : (
         <>
-          <FilesTable data={filesQuery.data?.files || []} />{' '}
+          <FilesTable data={filesQuery.data?.files || []} />
           <PaginationTable
             currentPage={page}
             totalPages={filesQuery.data?.pagination.pages || 0}
