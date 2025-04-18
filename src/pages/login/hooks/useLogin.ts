@@ -24,7 +24,7 @@ export const useLogin = () => {
     } catch (e: unknown) {
       if (e instanceof AxiosError) {
         setError(
-          e.response?.data?.message ||
+          e.response?.data?.error ||
             e.message ||
             'An error occurred while generating the purchase order.'
         );
