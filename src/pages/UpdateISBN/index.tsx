@@ -1,5 +1,5 @@
 import FilesProvider from '../../components/DropZone/provider';
-import FilesZone from '../GeneratePO/components/FilesZone';
+import FilesZone from './components/FilesZone';
 import SendFiles from './components/SendFiles';
 
 const UpdateBooksPage = () => {

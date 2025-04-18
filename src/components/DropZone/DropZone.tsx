@@ -5,7 +5,12 @@ import DropZoneCleanStage from './components/DropZoneCleanStage';
 import { Button } from '../UI/Button';
 // import DropZoneCleanStage from './components/DropZoneCleanStage';
 
-const DropZone: FC = () => {
+interface Props {
+  acceptedFiles: string;
+  multiple?: boolean;
+}
+
+const DropZone: FC<Props> = ({ acceptedFiles, multiple = true }) => {
   const { files, addFiles } = useFiles();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -45,9 +50,11 @@ const DropZone: FC = () => {
             {files.length > 0 ? (
               <>
                 <DropZoneFilledStage files={files} />
-                <Button noMargin onClick={triggerFileInput} variant="black">
-                  Add files
-                </Button>
+                {multiple && (
+                  <Button noMargin onClick={triggerFileInput} variant="black">
+                    Add files
+                  </Button>
+                )}
               </>
             ) : (
               <DropZoneCleanStage />
@@ -55,8 +62,8 @@ const DropZone: FC = () => {
             <input
               type="file"
               name="file_upload"
-              multiple
-              accept=".csv, .xls, .xlsx"
+              multiple={multiple}
+              accept={acceptedFiles}
               className="hidden"
               onChange={handleFileChange}
               ref={fileInputRef}

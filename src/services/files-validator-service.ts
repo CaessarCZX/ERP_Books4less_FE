@@ -5,9 +5,13 @@ export class FilesValidatorService {
   private files: File[];
   private validator: FileValidator;
 
-  constructor(files: File[]) {
+  constructor(
+    files: File[],
+    maxSizeOnService: number,
+    allowedTypesOnService: string[] = ['csv', 'xls', 'xlsx']
+  ) {
     this.files = files;
-    this.validator = new FileValidator(5 * 1024 * 1024, ['csv', 'xls', 'xlsx']);
+    this.validator = new FileValidator(maxSizeOnService, allowedTypesOnService);
   }
 
   renderNotifications(messages: string[]) {

@@ -1,3 +1,4 @@
+import AppConfig from '../../../config';
 import {
   FormContent,
   FormContentPercentage,
@@ -23,6 +24,7 @@ import { RootState } from '../../../context/store';
 import { useSelector } from 'react-redux';
 
 const Form = () => {
+  const { maxSizeOfFile } = AppConfig.uploadFiles.onGeneratorPOPage;
   const userId = useSelector((state: RootState) => state.user.id);
   const [purchaseOrder, setPurchaseOrder] = useState<PurchaseOrderGenerated>();
   const { modalRef, openModal, closeModal } = useStateModal();
@@ -40,7 +42,10 @@ const Form = () => {
   };
 
   const onSubmit: SubmitHandler<PurchaseOrderFormFields> = async (data) => {
-    const isValidFile = new FilesValidatorService(files).validateFiles();
+    const isValidFile = new FilesValidatorService(
+      files,
+      maxSizeOfFile
+    ).validateFiles();
     if (!isValidFile) return;
     openModal();
     const result = await generatePO({ data, files, userId });

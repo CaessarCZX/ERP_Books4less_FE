@@ -5,7 +5,7 @@ import AppConfig from '../../../config';
 
 const FilesZone: FC = () => {
   const { acceptedFiles, acceptMultipleFiles } =
-    AppConfig.uploadFiles.onGeneratorPOPage;
+    AppConfig.uploadFiles.onUpdateBooksPage;
   return (
     <BoxUI>
       <DropZone acceptedFiles={acceptedFiles} multiple={acceptMultipleFiles} />
