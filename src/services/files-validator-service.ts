@@ -7,7 +7,7 @@ export class FilesValidatorService {
 
   constructor(files: File[]) {
     this.files = files;
-    this.validator = new FileValidator(5 * 1024 * 1024, ['csv', 'xls', 'xlsx']);
+    this.validator = new FileValidator(30 * 1024 * 1024, ['csv', 'xls', 'xlsx']);
   }
 
   renderNotifications(messages: string[]) {
