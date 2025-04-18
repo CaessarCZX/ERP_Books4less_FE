@@ -4,12 +4,12 @@ const AppConfig = {
   uploadFiles: {
     onGeneratorPOPage: {
       maxSizeOfFile: 10 * MB_SIZE,
-      acceptedFiles: '.xlxs, .xlx',
+      acceptedFiles: '.xlsx, .xls',
       acceptMultipleFiles: true,
     },
     onUpdateBooksPage: {
       maxSizeOfFile: 30 * MB_SIZE,
-      acceptedFiles: '.xlxs, .xlx',
+      acceptedFiles: '.xlsx, .xls',
       acceptMultipleFiles: false,
     },
   },
