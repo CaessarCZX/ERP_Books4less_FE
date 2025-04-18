@@ -15,7 +15,7 @@ const Header: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <>
       <header
-        className="sticky mt-6 flex w-full flex-wrap items-center justify-between rounded-2xl px-0 py-2 shadow-none transition-all duration-250 lg:flex-nowrap lg:justify-start"
+        className="sticky mt-6 flex flex-wrap items-center justify-between rounded-2xl px-0 py-2 shadow-none transition-all duration-250 lg:flex-nowrap lg:justify-start 2xl:mr-8"
         navbar-scroll="true"
       >
         <div className="flex-wrap-inherit mx-auto flex w-full items-center justify-between px-4 py-1">
