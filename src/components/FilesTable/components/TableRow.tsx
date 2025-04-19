@@ -42,7 +42,7 @@ const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
         <span
           className={`inline-flex rounded-full px-2 text-xs leading-5 font-semibold`}
         >
-          <a href={actions} target="_blank">
+          <a href={actions} download={filename}>
             <div
               className={`hidden rounded-2xl border px-2 text-gray-700 hover:scale-105 lg:inline-block ${colorbadge}`}
             >
