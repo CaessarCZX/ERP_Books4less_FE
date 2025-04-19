@@ -11,11 +11,21 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userSliceReducer from './states/user';
+import { encryptTransform } from 'redux-persist-transform-encrypt';
+import AppConfig from '../config';
+
+const encryptor = encryptTransform({
+  secretKey: AppConfig.reduxSecretKey!,
+  onError: (e) => {
+    if (AppConfig.isDevelopmenMode) console.error('Encrypt error:', e);
+  },
+});
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  transforms: [encryptor],
   whitelist: ['user'],
 };
 
@@ -23,7 +33,12 @@ const rootReducer = combineReducers({
   user: userSliceReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+type RootReducerType = ReturnType<typeof rootReducer>;
+
+const persistedReducer = persistReducer<RootReducerType>(
+  persistConfig,
+  rootReducer
+);
 
 const store = configureStore({
   reducer: persistedReducer,

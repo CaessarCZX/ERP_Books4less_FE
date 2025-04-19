@@ -7,7 +7,7 @@ class UserAdapter {
     return {
       id: data.user_id,
       email: data.email,
-      role: '',
+      isAdmin: data.isAdmin,
     };
   }
 }

@@ -2,6 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { createUser, updateUser, resetUser } from '../states/user';
 import { ISignInResponse, UserInfo } from '../../models/user-model';
 import UserAdapter from '../../adapters/user-adapter';
+import { persistor } from '../store';
 
 class UserActions {
   private dispatch: Dispatch;
@@ -23,6 +24,10 @@ class UserActions {
 
   resetUser() {
     this.dispatch(resetUser());
+  }
+
+  async deletePersistence() {
+    await persistor.purge();
   }
 }
 

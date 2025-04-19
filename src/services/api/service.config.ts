@@ -1,13 +1,12 @@
 import axios, { AxiosRequestConfig } from 'axios';
-
-export const serverURL = import.meta.env.VITE_PUBLIC_API_BACKEND;
+import AppConfig from '../../config';
 
 export const ConfigApp: AxiosRequestConfig = {
   headers: { 'Content-Type': 'application/json' },
 };
 
 const projectApi = axios.create({
-  baseURL: serverURL,
+  baseURL: AppConfig.apiUrl,
   withCredentials: true,
 });
 

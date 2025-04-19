@@ -4,12 +4,14 @@ import { UserInfo } from '../../models/user-model';
 export const EmptyUserState: UserInfo = {
   id: '',
   email: '',
-  role: '',
+  isAdmin: false,
 };
+
+const initialState: UserInfo | undefined = EmptyUserState;
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: EmptyUserState,
+  initialState,
   reducers: {
     createUser: (_, action) => action.payload,
     updateUser: (state, action) => ({ ...state, ...action.payload }),

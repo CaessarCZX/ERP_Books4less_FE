@@ -1,6 +1,6 @@
 import projectApi from '../../../services/api/service.config';
 import { PurchaseOrderAdapter } from '../adapters/generate-po-adapter';
-import { serverURL } from '../../../services/api/service.config';
+import AppConfig from '../../../config';
 import {
   IPurchaseOrder,
   IPurchaseOrderResponse,
@@ -32,8 +32,8 @@ class PurchaseOrderService {
   ): PurchaseOrderGenerated {
     const { pdf, csv } = purchaseOrderResponse.download_links;
     return {
-      pdf: `${serverURL}${pdf}`,
-      csv: `${serverURL}${csv}`,
+      pdf: `${AppConfig.apiUrl}${pdf}`,
+      csv: `${AppConfig.apiUrl}${csv}`,
     };
   }
 

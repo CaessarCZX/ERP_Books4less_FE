@@ -1,7 +1,7 @@
 export interface UserInfo {
   id: string;
   email: string;
-  role: string;
+  isAdmin: boolean;
 }
 
 export interface ISignIn {
@@ -13,6 +13,7 @@ export interface ISignInResponse {
   message: string;
   user_id: string;
   email: string;
+  isAdmin: boolean;
 }
 
 export interface IRegisterUser {

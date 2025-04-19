@@ -8,7 +8,7 @@ export const useLogout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logout = () => {
+  const logout = async () => {
     new UserActions(dispatch).resetUser();
     UserService.signOut();
     navigate(`/${PublicRoutes.LOGIN}`);
