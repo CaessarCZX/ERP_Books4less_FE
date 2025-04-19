@@ -4,11 +4,12 @@ import SearchBar from '../../components/SearchFilesBar';
 import { useGetFiles } from '../../hooks/useGetFiles';
 import { IGetFiles } from '../../models/get-files-model';
 import DotsLoader from '../../components/Loader/Dots/DotsLoader';
-import PaginationTable from '../../components/FilesTable/PaginationTable';
+import { PaginationNumbers } from '../../components/FilesTable/paginations';
+// import { CommonPagination } from '../../components/FilesTable/paginations';
 
 const FilesHistory = () => {
   const [input, setInput] = useState<IGetFiles>();
-  const { filesQuery, page, nextPage, prevPage } = useGetFiles(input);
+  const { filesQuery, page, setPage } = useGetFiles(input);
   return (
     <>
       <div className="mb-4">
@@ -19,13 +20,13 @@ const FilesHistory = () => {
       ) : (
         <>
           <FilesTable data={filesQuery.data?.files || []} />
-          <PaginationTable
-            currentPage={page}
-            totalPages={filesQuery.data?.pagination.pages || 0}
-            totalItems={filesQuery.data?.pagination.total || 0}
-            prevPage={prevPage}
-            nextPage={nextPage}
-          />
+          <div className="mt-4 w-full text-right">
+            <PaginationNumbers
+              currentPage={page}
+              onPageChange={setPage}
+              totalPages={filesQuery.data?.pagination.pages || 0}
+            />
+          </div>
         </>
       )}
     </>

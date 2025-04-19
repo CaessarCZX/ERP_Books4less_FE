@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../context/store';
 import FilesService from '../services/files-service';
 import GetFilesAdapter from '../adapters/get-files-adapter';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export const useGetFiles = ({
   fileName,
@@ -22,25 +22,26 @@ export const useGetFiles = ({
     refetchOnWindowFocus: false,
   });
 
-  useEffect(() => {
-    setPage(1);
-  }, [typeFile]);
+  // For Common pagination methods
+  // useEffect(() => {
+  //   setPage(1);
+  // }, [typeFile]);
 
-  useEffect(() => {
-    setPage(1);
-  }, [fileName]);
+  // useEffect(() => {
+  //   setPage(1);
+  // }, [fileName]);
 
-  const prevPage = () => {
-    if (page === 1) return;
+  // const prevPage = () => {
+  //   if (page === 1) return;
 
-    setPage((prevPage) => prevPage - 1);
-  };
+  //   setPage((prevPage) => prevPage - 1);
+  // };
 
-  const nextPage = () => {
-    if (filesQuery.data?.files.length === 0) return;
+  // const nextPage = () => {
+  //   if (filesQuery.data?.files.length === 0) return;
 
-    setPage((prevPage) => prevPage + 1);
-  };
+  //   setPage((prevPage) => prevPage + 1);
+  // };
 
-  return { filesQuery, page, prevPage, nextPage };
+  return { filesQuery, page, setPage };
 };

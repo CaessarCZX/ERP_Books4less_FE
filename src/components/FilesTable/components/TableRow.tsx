@@ -23,8 +23,12 @@ const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
           </div>
           {/* --- icon --- */}
           {/* max-w-12 md:max-w-20 xl:max-w-full */}
+
           <div className="ml-4 overflow-hidden">
-            <div className="truncate text-[10px] font-medium text-gray-900 md:text-sm">
+            <div
+              title={filename}
+              className="truncate text-[10px] font-medium text-gray-900 md:text-sm"
+            >
               {filename}
             </div>
             <div className="text-[10px] text-gray-500 lg:text-sm">{type}</div>

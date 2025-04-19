@@ -14,13 +14,13 @@ const FilesTable: React.FC<TablaProps> = ({ data }) => {
 
   return (
     <BoxUI className="">
-      <div className="max-h-[600px] overflow-auto overflow-y-scroll">
+      <div className="max-h-[60vh]">
         <h2 className="text-md ml-6 leading-12 font-medium text-gray-600">
           All files generated
         </h2>
         <table className="flex w-full flex-col divide-y divide-gray-200">
           {data.length > 0 && <TableHeader sectionName={Header} />}
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="max-h-[50vh] divide-y divide-gray-200 overflow-x-hidden overflow-y-scroll">
             {data.length === 0 ? (
               <TableRowNotFound />
             ) : (

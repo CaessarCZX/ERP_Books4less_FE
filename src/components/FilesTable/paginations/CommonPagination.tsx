@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from '../UI/Button';
+import { Button } from '../../UI/Button';
 
 interface Props {
   currentPage: number;
@@ -11,7 +11,7 @@ interface Props {
 
 const ITEMS_PER_PAGE = 10;
 
-const PaginationTable: FC<Props> = ({
+const CommonPagination: FC<Props> = ({
   currentPage,
   totalPages,
   totalItems,
@@ -47,4 +47,4 @@ const PaginationTable: FC<Props> = ({
     </div>
   );
 };
-export default PaginationTable;
+export { CommonPagination };
