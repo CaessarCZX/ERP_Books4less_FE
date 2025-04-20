@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Notification from '../utils/Notification';
 
-const useDisplayNotifications = () => {
+export const useDisplayNotifications = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
@@ -20,5 +20,3 @@ const useDisplayNotifications = () => {
 
   return { setError, setSuccess };
 };
-
-export default useDisplayNotifications;

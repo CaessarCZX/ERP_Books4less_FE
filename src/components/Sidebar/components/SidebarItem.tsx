@@ -2,13 +2,9 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { ISedebarItem } from '../Models/Sidebar.Model';
 
-const SidebarItem: FC<ISedebarItem & { currentParam: string }> = ({
-  url,
-  icon: IconComponent,
-  title,
-  path,
-  currentParam,
-}) => {
+const SidebarItem: FC<
+  Omit<ISedebarItem, 'permissions'> & { currentParam: string }
+> = ({ url, icon: IconComponent, title, path, currentParam }) => {
   const isCurrentPage = path === currentParam;
   return (
     <li className="mt-0.5 w-full">

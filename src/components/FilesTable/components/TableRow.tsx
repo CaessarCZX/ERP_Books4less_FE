@@ -1,16 +1,18 @@
 import { FC } from 'react';
 import { UploadFile } from '../models/table-model';
-import { FaFileDownload, FaDownload } from 'react-icons/fa';
+import { FaDownload } from 'react-icons/fa';
 import getSizeOfFile from '../../../utils/Files/getSizeOfFile';
+import { getIconByType } from '../utils/getIconByType';
 
 const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
+  const { normalIcon } = getIconByType(type);
   const rowDefaultStyle = 'px-3 py-2 md:px-6 md:py-4';
   const colorbadge =
     type === 'xlsx'
       ? 'bg-green-50 border-green-200 hover:bg-green-100'
       : type === 'pdf'
         ? 'bg-red-50 border-red-200 hover:bg-red-100'
-        : 'bg-orange-50 border-orange-200 hover:bg-orange-100';
+        : 'bg-blue-50 border-blue-200 hover:bg-blue-100';
   return (
     <tr className="grid grid-cols-6 md:grid-cols-8">
       <td
@@ -18,16 +20,15 @@ const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
       >
         <div className="flex items-center">
           {/* --- icon --- */}
-          <div className="h-5 w-5 flex-shrink-0 rounded-xl bg-gradient-to-tl from-blue-700 to-blue-500 md:h-10 md:w-10">
-            <FaFileDownload className="h-4 w-4 text-white md:h-9 md:w-9" />
-          </div>
+          <picture className="h-5 w-5 flex-shrink-0 md:h-10 md:w-10">
+            <img src={normalIcon} alt="File" className="cover" loading="lazy" />
+          </picture>
           {/* --- icon --- */}
-          {/* max-w-12 md:max-w-20 xl:max-w-full */}
 
           <div className="ml-4 overflow-hidden">
             <div
               title={filename}
-              className="truncate text-[10px] font-medium text-gray-900 md:text-sm"
+              className="truncate text-[10px] font-light text-gray-900 md:text-sm"
             >
               {filename}
             </div>

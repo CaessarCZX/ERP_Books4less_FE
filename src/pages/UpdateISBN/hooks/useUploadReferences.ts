@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import useDisplayNotifications from '../../../hooks/useDisplayNotifications';
+import { useDisplayNotifications } from '../../../hooks';
 import { AxiosError } from 'axios';
 import UpdateBooksService from '../services/update-books-service';
 import { IUpdateReference } from '../models/update-books-model';

@@ -6,7 +6,7 @@ import schema from './schemas/search-bar-model';
 import options from './content/form-option-values';
 import FormDefaultValues from './content/form-fields-default';
 import { FC, useRef, useEffect, useCallback } from 'react'; // 👈 aquí está el import que te faltaba
-import useFocusOutline from '../../hooks/useFocusOutline';
+import { useFocusOutline } from '../../hooks';
 import { ISearchFiles } from './models/search-files-model';
 import { IGetFiles } from '../../models/get-files-model';
 

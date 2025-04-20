@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { toast, ToastPosition, ToastTransition, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-interface INotifications {
+export interface INotifications {
   position?: ToastPosition;
   transition?: ToastTransition;
   delay?: number;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Breadcumb from './components/Breadcumb';
 import SidebarBtn from './components/SidebarBtn';
-import { usePathname } from './Hooks/usePathname';
+import { usePathname } from '../../hooks';
 import LogoutBtn from './components/LogoutBtn';
 
 interface Props {

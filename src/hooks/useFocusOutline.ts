@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback, RefObject } from 'react';
 
-const useFocusOutline = <T extends HTMLElement>(ref: RefObject<T | null>) => {
+export const useFocusOutline = <T extends HTMLElement>(
+  ref: RefObject<T | null>
+) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = useCallback(() => {
@@ -29,5 +31,3 @@ const useFocusOutline = <T extends HTMLElement>(ref: RefObject<T | null>) => {
 
   return isFocused;
 };
-
-export default useFocusOutline;

@@ -6,6 +6,7 @@ import {
   IPurchaseOrderResponse,
   PurchaseOrderGenerated,
 } from '../Models/generate-po-model';
+import { renderArrayNotifications } from '../../../utils/Notification/renderArrayNotifications';
 
 class PurchaseOrderService {
   private inputData: IPurchaseOrder;
@@ -27,7 +28,7 @@ class PurchaseOrderService {
     return data;
   }
 
-  static getPurchaseOrderLinks(
+  getPurchaseOrderLinks(
     purchaseOrderResponse: IPurchaseOrderResponse
   ): PurchaseOrderGenerated {
     const { pdf, csv } = purchaseOrderResponse.download_links;
@@ -37,14 +38,27 @@ class PurchaseOrderService {
     };
   }
 
+  generateFormData() {
+    const data = this.normalizeData();
+    return this.adapter.formDataGenerator(data);
+  }
+
+  generateNotFoundBooksMessages(purchaseOrderResponse: IPurchaseOrderResponse) {
+    const unmatchedBooks =
+      purchaseOrderResponse.comparison_results.unmatched_items;
+    const unmatchedBooksWithMessage = this.addNotFoundMessage(unmatchedBooks);
+    renderArrayNotifications('alert', unmatchedBooksWithMessage, {
+      position: 'bottom-right',
+    });
+  }
+
   private normalizeData() {
     const { data, userId, files } = this.inputData;
     return this.adapter.mapFormFieldsToPurchaseOrder(data, userId, files);
   }
 
-  generateFormData() {
-    const data = this.normalizeData();
-    return this.adapter.formDataGenerator(data);
+  private addNotFoundMessage(messageArray: string[]) {
+    return messageArray.map((msg) => `ISBN not found: ${msg}`);
   }
 }
 

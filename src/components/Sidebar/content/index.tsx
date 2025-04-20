@@ -9,18 +9,21 @@ const MenuItems: ISedebarItem[] = [
     url: getPrivateRoute('GENERATE_PO'),
     icon: IoIosDocument,
     path: PrivateRoutes.GENERATE_PO,
+    permissions: 'user',
   },
   {
     title: 'Update ISBN',
     url: getPrivateRoute('UPDATE_BOOKS'),
     icon: IoIosCloudUpload,
     path: PrivateRoutes.UPDATE_BOOKS,
+    permissions: 'admin',
   },
   {
     title: 'Files history',
     url: getPrivateRoute('FILES_HISTORY'),
     icon: IoIosArchive,
     path: PrivateRoutes.FILES_HISTORY,
+    permissions: 'user',
   },
 ];
 

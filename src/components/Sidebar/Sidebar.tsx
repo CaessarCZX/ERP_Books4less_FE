@@ -4,7 +4,9 @@ import content from './content';
 import { Link } from 'react-router-dom';
 import ClickOutside from '../ClickOutside';
 import Logo from '../../assets/logo/logo.svg';
-import { usePathname } from '../Header/Hooks/usePathname';
+import { ISedebarItem } from './Models/Sidebar.Model';
+import { useUser, usePathname } from '../../hooks';
+import { PublicRoutes } from '../../models/router-model';
 
 interface Props {
   sidebarOpen: boolean;
@@ -13,6 +15,14 @@ interface Props {
 
 const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
   const currentPath = usePathname();
+  const { isAdmin } = useUser();
+  const sidebarSections = getSections(content);
+
+  function getSections(content: ISedebarItem[]) {
+    if (isAdmin) return content;
+    return content.filter((section) => section.permissions !== 'admin');
+  }
+
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
@@ -24,8 +34,7 @@ const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
         <div className="h-19.5">
           <Link
             className="m-0 flex items-center px-8 py-6 text-sm whitespace-nowrap text-slate-700"
-            to="/"
-            target="_blank"
+            to={PublicRoutes.INDEX}
           >
             <picture className="mr-1.5 block w-7">
               <img
@@ -45,7 +54,7 @@ const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
 
         <div className="block max-h-screen w-auto grow basis-full items-center overflow-auto">
           <ul className="mt-2 mb-10 flex flex-col gap-1 pl-0">
-            {content.map((item, index) => (
+            {sidebarSections.map((item, index) => (
               <SidebarItem
                 key={index}
                 title={item.title}

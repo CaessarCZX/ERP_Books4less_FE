@@ -1,12 +1,12 @@
+export type FileType = 'csv' | 'pdf' | 'xlsx' | 'all';
+
 export interface IReceivedFiles {
   nombre: string;
-  tipo: string;
+  tipo: FileType;
   fecha_subida: string;
   tamano: string;
   url: string;
 }
-
-export type FileType = 'csv' | 'pdf' | 'xlsx' | 'all';
 
 export interface IGetFiles {
   fileName?: string;

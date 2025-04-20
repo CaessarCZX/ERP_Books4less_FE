@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import useDisplayNotifications from '../../../hooks/useDisplayNotifications';
+import { useDisplayNotifications } from '../../../hooks';
 import { AxiosError } from 'axios';
 import UserService from '../../../services/user-service';
 import { ISignIn } from '../../../models/user-model';

@@ -2,14 +2,13 @@ import { FC } from 'react';
 
 interface Props {
   sidebarOpen: string | boolean | undefined;
-  setSidebarOpen: (arg0: boolean) => void;
+  setSidebarOpen: (arg: boolean) => void;
 }
 
 const SidebarBtn: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
   return (
     <button
-      onClick={(e) => {
-        e.stopPropagation();
+      onClick={() => {
         setSidebarOpen(!sidebarOpen);
       }}
       className="block cursor-pointer p-0 text-sm text-slate-500 transition-all dark:text-white"
