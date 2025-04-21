@@ -10,6 +10,7 @@ interface Props {
   step?: string;
   placeholder?: string;
   icon?: ReactNode;
+  showError?: boolean;
 }
 
 const ErrorMsg = ({ msg }: { msg: string }) => (
@@ -23,6 +24,7 @@ const InputPasswordForm: FC<Props> = ({
   step = '',
   placeholder = '',
   icon = '',
+  showError = true,
 }) => {
   const {
     register,
@@ -33,7 +35,7 @@ const InputPasswordForm: FC<Props> = ({
   return (
     <>
       <div
-        className={`relative flex flex-col ${errors && errors[name] ? 'mb-0' : 'mb-6'}`}
+        className={`relative flex flex-col ${showError && errors && errors[name] ? 'mb-0' : 'mb-6'}`}
       >
         <InputField
           id={id}
@@ -41,6 +43,7 @@ const InputPasswordForm: FC<Props> = ({
           type={showPassword ? 'text' : 'password'}
           step={step}
           icon={icon}
+          autoComplete="new-password"
           placeholder={placeholder}
           validationState={errors && !!errors[name] ? 'error' : 'default'}
           {...register(name)}
@@ -56,7 +59,7 @@ const InputPasswordForm: FC<Props> = ({
           )}
         </div>
       </div>
-      {errors && errors[name] && (
+      {showError && errors && errors[name] && (
         <ErrorMsg msg={errors[name].message as string} />
       )}
     </>

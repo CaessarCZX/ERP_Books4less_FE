@@ -2,25 +2,23 @@ import { useMutation } from '@tanstack/react-query';
 import { useDisplayNotifications } from '../../../hooks';
 import { AxiosError } from 'axios';
 import UserService from '../../../services/user-service';
-import { ISignIn } from '../../../models/user-model';
-import { useDispatch } from 'react-redux';
-import UserActions from '../../../context/actions/user-actions';
+import { IRegisterUser } from '../../../models/user-model';
 import { useNavigate } from 'react-router-dom';
-import { getPrivateRoute } from '../../../utils/Routes/getPrivateRoute';
+import { getPublicRoute } from '../../../utils/Routes/getPublicRoute';
 
-export const useLogin = () => {
-  const dispatch = useDispatch();
+export const useRegister = () => {
   const navigate = useNavigate();
-  const { setError } = useDisplayNotifications();
+  const { setError, setSuccess } = useDisplayNotifications();
   const mutation = useMutation({
-    mutationFn: UserService.signIn,
+    mutationFn: UserService.signUp,
   });
 
-  const login = async (data: ISignIn) => {
+  const register = async (data: IRegisterUser) => {
     try {
       const res = await mutation.mutateAsync(data);
-      new UserActions(dispatch).createUser(res);
-      navigate(getPrivateRoute('GENERATE_PO'));
+      setSuccess(res.message);
+      navigate(getPublicRoute('NEW_USER'));
+      return res;
     } catch (e: unknown) {
       if (e instanceof AxiosError) {
         setError(
@@ -39,6 +37,6 @@ export const useLogin = () => {
 
   return {
     mutation,
-    login,
+    register,
   };
 };

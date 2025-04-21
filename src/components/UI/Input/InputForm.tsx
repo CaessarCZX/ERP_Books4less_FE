@@ -10,6 +10,7 @@ interface Props {
   step?: string;
   placeholder?: string;
   icon?: ReactNode;
+  autoComplete?: string;
 }
 
 const ErrorMsg = ({ msg }: { msg: string }) => (
@@ -24,6 +25,7 @@ const InputForm: FC<Props> = ({
   step = '',
   placeholder = '',
   icon = '',
+  autoComplete = '',
 }) => {
   const {
     register,
@@ -41,6 +43,7 @@ const InputForm: FC<Props> = ({
         step={step}
         icon={icon}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         validationState={errors && !!errors[name] ? 'error' : 'default'}
         {...register(name)}
       />
