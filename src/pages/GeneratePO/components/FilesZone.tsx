@@ -7,9 +7,14 @@ const FilesZone: FC = () => {
   const { acceptedFiles, acceptMultipleFiles } =
     AppConfig.uploadFiles.onGeneratorPOPage;
   return (
-    <BoxUI>
-      <DropZone acceptedFiles={acceptedFiles} multiple={acceptMultipleFiles} />
-    </BoxUI>
+    <>
+      <BoxUI className="flex-1">
+        <DropZone
+          acceptedFiles={acceptedFiles}
+          multiple={acceptMultipleFiles}
+        />
+      </BoxUI>
+    </>
   );
 };
 export default FilesZone;

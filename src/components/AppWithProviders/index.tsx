@@ -6,10 +6,11 @@ import QueryProvider from '../QueryProvider/QueryProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import RouterApp from '../../router';
+import Loader from '../../pages/Loader/Loader';
 
 const AppWithProviders: FC<PropsWithChildren> = () => {
   return (
-    <Suspense fallback={<>Loading</>}>
+    <Suspense fallback={<Loader />}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <QueryProvider>

@@ -23,7 +23,7 @@ const SignInForm: React.FC = () => {
   const onSubmit: SubmitHandler<ISignIn> = (data) => login(data);
 
   return (
-    <div className="absolute right-0 bottom-1/6 left-0 container px-4 sm:mx-auto">
+    <div className="absolute right-0 top-50 left-0 translate-y-1/2 container px-4 sm:mx-auto">
       <div className="flex flex-wrap">
         <div className="mx-auto mt-0 w-full max-w-full shrink-0 px-3 md:w-7/12 lg:w-5/12 xl:w-4/12">
           <div className="shadow-soft-xl relative z-0 flex min-w-0 flex-col rounded-2xl border-0 bg-white bg-clip-border break-words">
