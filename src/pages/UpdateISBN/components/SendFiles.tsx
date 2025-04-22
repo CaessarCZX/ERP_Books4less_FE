@@ -6,15 +6,17 @@ import { RootState } from '../../../context/store';
 import { useStateModal } from '../../../hooks/useStateModal';
 import { FilesValidatorService } from '../../../services/files-validator-service';
 import Modal from '../../../components/UI/Modal';
+import AppConfig from '../../../config';
 
 const SendFiles = () => {
+  const { maxSizeOfFile } = AppConfig.uploadFiles.onUpdateBooksPage;
   const { openModal, closeModal, modalRef } = useStateModal();
   const { files, clearFiles } = useFiles();
   const { uploadReferences, mutation } = useUploadReferences();
   const userId = useSelector((state: RootState) => state.user.id);
 
   const onSubmit = async () => {
-    const validator = new FilesValidatorService(files);
+    const validator = new FilesValidatorService(files, maxSizeOfFile);
     const isValidFile = validator.validateFiles();
 
     // Only one file
