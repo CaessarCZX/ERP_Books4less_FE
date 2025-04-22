@@ -3,14 +3,22 @@ import { useFiles } from './hooks/useFiles';
 import DropZoneFilledStage from './components/DropZoneFilledStage';
 import DropZoneCleanStage from './components/DropZoneCleanStage';
 import { Button } from '../UI/Button';
+import { MdCloudUpload } from 'react-icons/md';
+import { PiFilePlusBold } from 'react-icons/pi';
+
 // import DropZoneCleanStage from './components/DropZoneCleanStage';
 
 interface Props {
   acceptedFiles: string;
   multiple?: boolean;
+  sendToServer?: boolean;
 }
 
-const DropZone: FC<Props> = ({ acceptedFiles, multiple = true }) => {
+const DropZone: FC<Props> = ({
+  acceptedFiles,
+  multiple = true,
+  sendToServer = true,
+}) => {
   const { files, addFiles } = useFiles();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -50,11 +58,30 @@ const DropZone: FC<Props> = ({ acceptedFiles, multiple = true }) => {
             {files.length > 0 ? (
               <>
                 <DropZoneFilledStage files={files} />
-                {multiple && (
-                  <Button noMargin onClick={triggerFileInput} variant="black">
-                    Add files
-                  </Button>
-                )}
+                <div className="flex max-w-30 flex-col items-center gap-4">
+                  {sendToServer && (
+                    <Button
+                      fullWidth
+                      noMargin
+                      onClick={triggerFileInput}
+                      variant="black"
+                    >
+                      <MdCloudUpload className="h-4 w-4 text-white" />
+                      Upload
+                    </Button>
+                  )}
+                  {multiple && (
+                    <Button
+                      fullWidth
+                      noMargin
+                      onClick={triggerFileInput}
+                      variant="black"
+                    >
+                      <PiFilePlusBold className="h-4 w-4 text-white" />
+                      Attach
+                    </Button>
+                  )}
+                </div>
               </>
             ) : (
               <DropZoneCleanStage />

@@ -3,10 +3,10 @@ import SidebarItem from './components/SidebarItem';
 import content from './content';
 import { Link } from 'react-router-dom';
 import ClickOutside from '../ClickOutside';
-import Logo from '../../assets/logo/logo.svg';
 import { ISedebarItem } from './Models/Sidebar.Model';
 import { useUser, usePathname } from '../../hooks';
-import { PublicRoutes } from '../../models/router-model';
+import { getPrivateRoute } from '../../utils/Routes/getPrivateRoute';
+import LogoApp from '../UI/Logo';
 
 interface Props {
   sidebarOpen: boolean;
@@ -31,21 +31,12 @@ const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
         }`}
       >
         {/* <!-- SIDEBAR HEADER --> */}
-        <div className="h-19.5">
+        <div className="">
           <Link
-            className="m-0 flex items-center px-8 py-6 text-sm whitespace-nowrap text-slate-700"
-            to={PublicRoutes.INDEX}
+            className="mt-2 mb-4 ml-10 block w-fit"
+            to={getPrivateRoute('GENERATE_PO')}
           >
-            <picture className="mr-1.5 block w-7">
-              <img
-                src={Logo}
-                className="w-full object-cover"
-                alt="Document manager"
-              />
-            </picture>
-            <span className="ml-1 font-semibold duration-200">
-              Document Maganer
-            </span>
+            <LogoApp small variant="black" />
           </Link>
         </div>
         {/* <!-- SIDEBAR HEADER --> */}

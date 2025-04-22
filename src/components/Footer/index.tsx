@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
         <div className="flex min-w-50 flex-wrap">
           <div className="mx-auto mt-1 max-w-full px-3 text-center">
             <p className="mb-0 text-slate-400">
-              Copyright © {new Date().getFullYear()} NovaSoft.
+              {/* Copyright © {new Date().getFullYear()} */}
             </p>
           </div>
         </div>
