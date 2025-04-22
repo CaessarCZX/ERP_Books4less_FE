@@ -3,7 +3,7 @@ import Notification from '../../../utils/Notification';
 import { UpdateBooksAdapter } from '../adapters/update-reference-adapter';
 import {
   IUpdateReference,
-  // IUpdateReferenceResponse,
+  IUpdateReferenceResponse,
 } from '../models/update-books-model';
 
 class UpdateBooksService {
@@ -15,23 +15,15 @@ class UpdateBooksService {
     this.adapter = new UpdateBooksAdapter();
   }
 
-  // static async postUpdateBooks(
-  //   formData: FormData
-  // ): Promise<IUpdateReferenceResponse> {
-  //   const { data } = await projectApi.post('/api/upload-reference', formData, {
-  //     headers: {
-  //       'Content-Type': 'multipart/form-data',
-  //     },
-  //   });
-  //   console.log(data);
-  //   return data;
-  // }
-  static async postUpdateBooks(formData: FormData) {
+  static async postUpdateBooks(
+    formData: FormData
+  ): Promise<IUpdateReferenceResponse> {
     const { data } = await projectApi.post('/api/upload-reference', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
+    console.log(data);
     return data;
   }
 

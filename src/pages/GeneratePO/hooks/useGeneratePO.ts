@@ -15,6 +15,7 @@ export const useGeneratePO = () => {
       const service = new PurchaseOrderService(data);
       const formData = service.generateFormData();
       const res = await mutation.mutateAsync(formData);
+      console.log(res);
       setSuccess(res.message || 'Purchase Order generated successfully.');
       service.generateNotFoundBooksMessages(res);
       const purchaseOrderLinks = service.getPurchaseOrderLinks(res);
