@@ -15,6 +15,23 @@ const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
       : type === 'pdf'
         ? 'bg-red-50 border-red-200 hover:bg-red-100'
         : 'bg-blue-50 border-blue-200 hover:bg-blue-100';
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(actions);
+      if (!response.ok) throw new Error('Error al descargar');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Error en descarga binaria:', err);
+    }
+  };
   return (
     <tr className="grid grid-cols-6 md:grid-cols-8">
       <td
@@ -45,11 +62,18 @@ const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
         <span
           className={`inline-flex rounded-full px-2 text-xs leading-5 font-semibold`}
         >
-          <a href={actions} target="_blank">
+          <a
+            href={actions}
+            onClick={(e) => {
+              e.preventDefault();
+              handleDownload();
+            }}
+            className="cursor-pointer"
+          >
             <div
               className={`hidden rounded-2xl border px-2 text-gray-700 hover:scale-105 lg:inline-block ${colorbadge}`}
             >
-              {t('filesHistory.btnDownload')}
+              {t('filesHistory.btnDownload')} {/*Boton de descargar archivo */}
             </div>
             <FaDownload className="text-blue-700 lg:hidden" />
           </a>
