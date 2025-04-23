@@ -21,10 +21,10 @@ export const FormFieldsDefaultValues: PurchaseOrderFormFields = {
 
 export const FormContent: IForm[] = [
   {
-    sectionName: 'Report information',
+    sectionName: 'POG.t1-reportInfo',
     content: [
       {
-        label: 'Purchase Order Information',
+        label: 'POG.subt1-repotInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.purchaseOrderInformation,
         id: 'po-i',
@@ -32,7 +32,7 @@ export const FormContent: IForm[] = [
         key: 11,
       },
       {
-        label: 'Purchase Order Date',
+        label: 'POG.subt2-reportInfo',
         type: 'date',
         name: PurchaseOrderFormFieldNames.purchaseOrderDate,
         id: 'po-d',
@@ -43,10 +43,10 @@ export const FormContent: IForm[] = [
     key: 34234534,
   },
   {
-    sectionName: 'Seller information',
+    sectionName: 'POG.t2-sellerInfo',
     content: [
       {
-        label: 'Seller name',
+        label: 'POG.subt1-sellerInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.sellerName,
         id: 'sell-n',
@@ -54,7 +54,7 @@ export const FormContent: IForm[] = [
         key: 13,
       },
       {
-        label: 'Seller P.O',
+        label: 'POG.subt2-sellerInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.sellerPO,
         id: 'sell-p',
@@ -62,7 +62,7 @@ export const FormContent: IForm[] = [
         key: 14,
       },
       {
-        label: 'Seller address',
+        label: 'POG.subt3-sellerInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.sellerAddress,
         id: 'sell-a',
@@ -73,10 +73,10 @@ export const FormContent: IForm[] = [
     key: 3459212,
   },
   {
-    sectionName: 'Shipping information',
+    sectionName: 'POG.t3-shippingInfo',
     content: [
       {
-        label: 'Enterprise name',
+        label: 'POG.subt1-shippingInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.enterpriseName,
         id: 'ship-n',
@@ -84,7 +84,7 @@ export const FormContent: IForm[] = [
         key: 16,
       },
       {
-        label: 'Enterprise address',
+        label: 'POG.subt2-shippingInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.enterpriseAddress,
         id: 'ship-a',
@@ -92,7 +92,7 @@ export const FormContent: IForm[] = [
         key: 17,
       },
       {
-        label: 'Enterprise data',
+        label: 'POG.subt3-shippingInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.enterpriseData,
         id: 'ship-d',
@@ -103,10 +103,10 @@ export const FormContent: IForm[] = [
     key: 6432344,
   },
   {
-    sectionName: 'Enterprise information',
+    sectionName: 'POG.t4-enterpriseInfo',
     content: [
       {
-        label: 'Shipping method',
+        label: 'POG.subt1-enterpriseInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.shippingMethod,
         id: 'ent-s',
@@ -114,7 +114,7 @@ export const FormContent: IForm[] = [
         key: 19,
       },
       {
-        label: 'Payment terms',
+        label: 'POG.subt2-enterpriseInfo',
         type: 'text',
         name: PurchaseOrderFormFieldNames.paymentTerms,
         id: 'ent-p',
@@ -127,7 +127,7 @@ export const FormContent: IForm[] = [
 ];
 
 export const FormContentPercentage: IFields & { step: string } = {
-  label: 'Discount Percentage %',
+  label: 'POG.discountPer',
   type: 'number',
   step: '0.01',
   name: PurchaseOrderFormFieldNames.discountPercent,

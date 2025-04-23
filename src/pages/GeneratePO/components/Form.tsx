@@ -22,8 +22,10 @@ import { useStateModal } from '../../../hooks/useStateModal';
 import DownloadFilesZone from './DownloadFilesZone';
 import { RootState } from '../../../context/store';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const Form = () => {
+  const { t } = useTranslation();
   const { maxSizeOfFile } = AppConfig.uploadFiles.onGeneratorPOPage;
   const userId = useSelector((state: RootState) => state.user.id);
   const [purchaseOrder, setPurchaseOrder] = useState<PurchaseOrderGenerated>();
@@ -68,13 +70,13 @@ const Form = () => {
           return (
             <fieldset key={formSection.key}>
               <legend className="mb-2 text-xl font-bold text-slate-700 dark:text-white">
-                {sectionName}
+                {t(sectionName)}
               </legend>
               <div className="flex w-full flex-col gap-8 sm:flex-row">
                 {sectionContent.map((field) => (
                   <div key={field.key} className="flex-1">
                     <InputForm
-                      label={field.label}
+                      label={t(field.label)}
                       type={field.type}
                       id={field.id}
                       name={field.name}
@@ -90,7 +92,7 @@ const Form = () => {
             const { label, type, step, id, name } = FormContentPercentage;
             return (
               <InputForm
-                label={label}
+                label={t(label)}
                 type={type}
                 step={step}
                 id={id}
@@ -99,7 +101,7 @@ const Form = () => {
             );
           })()}
           <Button type="submit" variant="black">
-            Generate Purchase Order
+            {t('POG.btnPOG')}
           </Button>
         </fieldset>
       </form>

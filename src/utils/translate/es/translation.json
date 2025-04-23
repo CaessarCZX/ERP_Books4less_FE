@@ -1,11 +1,43 @@
 {
     "sideBar": {
-        "purchaseOrderGenerate": "Generar de ordenes de compra",
-        "updateISBN": "Actualizar ISBN",
-        "filesHistory": "Historial de archivos"
+        "t1-purchase": "Generar orden de compra",
+        "t2-update": "Actualizar ISBN",
+        "t3-files": "Historial dr archivos"
     },
 
     "header": {
         "logOut": "CERRAR SESIÓN"
+    },
+
+    "POG": {
+        "dropZone-part1": "Soltar archivos para adjuntar, o",
+        "dropZone-part2": "navegar",
+
+        "t1-reportInfo": "Información del informe",
+        "subt1-repotInfo": "Información de la orden de compra",
+        "subt2-reportInfo": "Fecha de la orden de compra",
+
+        "t2-sellerInfo": "Información del vendedor",
+        "subt1-sellerInfo": "Nombre del vendedor",
+        "subt2-sellerInfo": "P.O del vendedor",
+        "subt3-sellerInfo": "Dirección del vendedor",
+
+        "t3-shippingInfo": "Información del envío",
+        "subt1-shippingInfo": "Nombre de la empresa",
+        "subt2-shippingInfo": "Dirección de la empresa",
+        "subt3-shippingInfo": "Datos de la empresa",
+
+        "t4-enterpriseInfo": "Información empresarial",
+        "subt1-enterpriseInfo": "Método de envío",
+        "subt2-enterpriseInfo": "Condiciones de pago",
+
+        "discountPer": "Porcentaje de descuento %",
+
+        "btnPOG": "GENERAR ORDEN DE COMPRA"
+    },
+
+    "updateISBN": {
+        "btnUpload": "SUBIR ARCHIVOS"
     }
+
 }

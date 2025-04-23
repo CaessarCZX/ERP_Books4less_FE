@@ -7,6 +7,7 @@ import { useStateModal } from '../../../hooks/useStateModal';
 import { FilesValidatorService } from '../../../services/files-validator-service';
 import Modal from '../../../components/UI/Modal';
 import AppConfig from '../../../config';
+import { useTranslation } from 'react-i18next';
 
 const SendFiles = () => {
   const { maxSizeOfFile } = AppConfig.uploadFiles.onUpdateBooksPage;
@@ -14,6 +15,7 @@ const SendFiles = () => {
   const { files, clearFiles } = useFiles();
   const { uploadReferences, mutation } = useUploadReferences();
   const userId = useSelector((state: RootState) => state.user.id);
+  const { t } = useTranslation();
 
   const onSubmit = async () => {
     const validator = new FilesValidatorService(files, maxSizeOfFile);
@@ -40,7 +42,7 @@ const SendFiles = () => {
   return (
     <div className="text-right">
       <Button disabled={files.length === 0} onClick={onSubmit} variant="black">
-        Upload Files
+        {t('updateISBN.btnUpload')}
       </Button>
       <Modal
         isLoading={mutation.isPending}
