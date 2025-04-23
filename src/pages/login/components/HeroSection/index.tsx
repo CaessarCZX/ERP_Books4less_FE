@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
         <div className="z-10 container mx-auto">
           <div className="flex flex-wrap justify-center">
             <div className="mx-auto mt-0 w-full max-w-full shrink-0 px-3 text-center lg:w-5/12">
-              <div className="mx-auto mt-14">
+              <div className="mx-auto mt-14 max-w-fit">
                 <LogoApp variant="white" />
               </div>
             </div>

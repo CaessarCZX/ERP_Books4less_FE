@@ -15,8 +15,7 @@ export const useUploadReferences = () => {
       const service = new UpdateBooksService(data);
       const formData = service.generateFormData();
       const res = await mutation.mutateAsync(formData);
-      console.log(res);
-      if (res.errors) service.renderFoundErrors(res.errors);
+      // if (res.errors) service.renderFoundErrors(res.errors);
 
       setSuccess(res.message || 'Purchase Order generated successfully.');
       return res;
