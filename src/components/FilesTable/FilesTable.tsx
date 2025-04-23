@@ -4,19 +4,29 @@ import TableRow from './components/TableRow';
 import TableRowNotFound from './components/TableRowNotFound';
 import { UploadFile } from './models/table-model';
 import BoxUI from '../UI/BoxUI';
+import { useTranslation } from 'react-i18next';
 
 interface TablaProps {
   data: UploadFile[];
 }
 
 const FilesTable: React.FC<TablaProps> = ({ data }) => {
-  const Header = ['filename', 'type', 'actions', 'date', 'time', 'size'];
+  const { t } = useTranslation();
+
+  const Header = [
+    t('filesHistory.fileName'),
+    t('filesHistory.type'),
+    t('filesHistory.actions'),
+    t('filesHistory.date'),
+    t('filesHistory.time'),
+    t('filesHistory.size'),
+  ];
 
   return (
     <BoxUI className="">
       <div className="max-h-[60vh]">
         <h2 className="text-md ml-6 leading-12 font-medium text-gray-600">
-          All files generated
+          {t('filesHistory.title')}
         </h2>
         <table className="flex w-full flex-col divide-y divide-gray-200">
           {data.length > 0 && <TableHeader sectionName={Header} />}

@@ -1,5 +1,5 @@
 const options = [
-  { name: 'All Files', value: 'all', key: 111 },
+  { name: 'filesHistory.searchBar', value: 'all', key: 111 },
   { name: 'PDF', value: 'pdf', key: 112 },
   { name: 'CSV', value: 'csv', key: 113 },
   { name: 'EXCEL', value: 'xlsx', key: 114 },

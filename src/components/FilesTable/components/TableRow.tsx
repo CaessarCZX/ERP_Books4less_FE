@@ -3,8 +3,10 @@ import { UploadFile } from '../models/table-model';
 import { FaDownload } from 'react-icons/fa';
 import getSizeOfFile from '../../../utils/Files/getSizeOfFile';
 import { getIconByType } from '../utils/getIconByType';
+import { useTranslation } from 'react-i18next';
 
 const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
+  const { t } = useTranslation();
   const { normalIcon } = getIconByType(type);
   const rowDefaultStyle = 'px-3 py-2 md:px-6 md:py-4';
   const colorbadge =
@@ -47,7 +49,7 @@ const TableRow: FC<UploadFile> = ({ filename, type, actions, date, size }) => {
             <div
               className={`hidden rounded-2xl border px-2 text-gray-700 hover:scale-105 lg:inline-block ${colorbadge}`}
             >
-              Download
+              {t('filesHistory.btnDownload')}
             </div>
             <FaDownload className="text-blue-700 lg:hidden" />
           </a>

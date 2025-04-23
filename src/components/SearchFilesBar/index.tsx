@@ -9,12 +9,14 @@ import { FC, useRef, useEffect, useCallback } from 'react'; // 👈 aquí está 
 import { useFocusOutline } from '../../hooks';
 import { ISearchFiles } from './models/search-files-model';
 import { IGetFiles } from '../../models/get-files-model';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   setInput: (input: IGetFiles) => void;
 }
 
 const SearchBar: FC<Props> = ({ setInput }) => {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isFocused = useFocusOutline<HTMLDivElement>(ref);
 
@@ -79,7 +81,7 @@ const SearchBar: FC<Props> = ({ setInput }) => {
         >
           {options.map((option) => (
             <option key={option.key} value={option.value}>
-              {option.name}
+              {t(option.name)}
             </option>
           ))}
         </select>

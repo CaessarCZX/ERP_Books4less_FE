@@ -38,6 +38,19 @@
 
     "updateISBN": {
         "btnUpload": "SUBIR ARCHIVOS"
+    },
+
+    "filesHistory": {
+        "searchBar": "Todos los archivos",
+
+        "title": "Todos los archivos generados",
+        "fileName": "NOMBRE DE ARCHIVO",
+        "type": "TIPO",
+        "actions": "ACCIONES",
+        "date": "FECHA",
+        "time": "HORA",
+        "size": "TAMAÑO",
+        "btnDownload": "Descargar"
     }
 
 }
