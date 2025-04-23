@@ -1,0 +1,11 @@
+{
+    "sideBar": {
+        "purchaseOrderGenerate": "Generar de ordenes de compra",
+        "updateISBN": "Actualizar ISBN",
+        "filesHistory": "Historial de archivos"
+    },
+
+    "header": {
+        "logOut": "CERRAR SESIÓN"
+    }
+}

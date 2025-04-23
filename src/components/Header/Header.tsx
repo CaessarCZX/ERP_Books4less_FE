@@ -3,6 +3,7 @@ import Breadcumb from './components/Breadcumb';
 import SidebarBtn from './components/SidebarBtn';
 import { usePathname } from '../../hooks';
 import LogoutBtn from './components/LogoutBtn';
+import BtnPrueba from './components/btnPrueba';
 
 interface Props {
   sidebarOpen: string | boolean | undefined;
@@ -26,6 +27,7 @@ const Header: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
           >
             <ul className="mb-0 flex list-none flex-row pl-0">
               <li className="flex items-center">
+                <BtnPrueba />
                 <LogoutBtn />
               </li>
               <li className="flex items-center pl-4 lg:hidden">

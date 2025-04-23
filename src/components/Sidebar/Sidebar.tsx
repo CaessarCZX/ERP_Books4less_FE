@@ -7,6 +7,7 @@ import { ISedebarItem } from './Models/Sidebar.Model';
 import { useUser, usePathname } from '../../hooks';
 import { getPrivateRoute } from '../../utils/Routes/getPrivateRoute';
 import LogoApp from '../UI/Logo';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   sidebarOpen: boolean;
@@ -17,6 +18,8 @@ const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
   const currentPath = usePathname();
   const { isAdmin } = useUser();
   const sidebarSections = getSections(content);
+
+  const { t } = useTranslation();
 
   function getSections(content: ISedebarItem[]) {
     if (isAdmin) return content;
@@ -48,7 +51,7 @@ const Sidebar: FC<Props> = ({ sidebarOpen, setSidebarOpen }) => {
             {sidebarSections.map((item, index) => (
               <SidebarItem
                 key={index}
-                title={item.title}
+                title={t(item.title)}
                 url={item.url}
                 path={item.path}
                 currentParam={currentPath}

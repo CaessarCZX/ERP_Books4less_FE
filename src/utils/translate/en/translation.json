@@ -1,0 +1,12 @@
+{
+    "sideBar": {
+        "purchaseOrderGenerate": "Purchase Order Generator",
+        "updateISBN": "Update ISBN",
+        "filesHistory": "Files history"
+    },
+
+    "header": {
+        "logOut": "LOG OUT"
+    }
+    
+}
