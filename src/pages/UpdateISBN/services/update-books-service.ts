@@ -23,7 +23,6 @@ class UpdateBooksService {
         'Content-Type': 'multipart/form-data',
       },
     });
-    console.log(data);
     return data;
   }
 

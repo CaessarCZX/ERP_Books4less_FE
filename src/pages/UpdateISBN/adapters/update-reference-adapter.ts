@@ -5,7 +5,6 @@ interface UpdateBooks {
 
 export class UpdateBooksAdapter {
   formDataGenerator(updateBooksRequest: UpdateBooks): FormData {
-    console.log(updateBooksRequest);
     const formData = new FormData();
     formData.append('user_id', updateBooksRequest.userId);
     formData.append('file', updateBooksRequest.file);

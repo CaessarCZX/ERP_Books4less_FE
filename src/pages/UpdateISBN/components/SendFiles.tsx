@@ -1,20 +1,19 @@
-import { useSelector } from 'react-redux';
 import { useFiles } from '../../../components/DropZone/hooks/useFiles';
 import { Button } from '../../../components/UI/Button';
 import { useUploadReferences } from '../hooks/useUploadReferences';
-import { RootState } from '../../../context/store';
 import { useStateModal } from '../../../hooks/useStateModal';
 import { FilesValidatorService } from '../../../services/files-validator-service';
 import Modal from '../../../components/UI/Modal';
 import AppConfig from '../../../config';
 import { useTranslation } from 'react-i18next';
+import { useUser } from '../../../hooks';
 
 const SendFiles = () => {
   const { maxSizeOfFile } = AppConfig.uploadFiles.onUpdateBooksPage;
   const { openModal, closeModal, modalRef } = useStateModal();
   const { files, clearFiles } = useFiles();
   const { uploadReferences, mutation } = useUploadReferences();
-  const userId = useSelector((state: RootState) => state.user.id);
+  const { id } = useUser();
   const { t } = useTranslation();
 
   const onSubmit = async () => {
@@ -34,7 +33,7 @@ const SendFiles = () => {
 
     //Open Ui
     openModal();
-    const res = await uploadReferences({ userId, files });
+    const res = await uploadReferences({ userId: id, files });
     if (!res) return;
     clearFiles();
   };

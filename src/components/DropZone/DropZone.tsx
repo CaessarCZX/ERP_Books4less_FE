@@ -3,9 +3,8 @@ import { useFiles } from './hooks/useFiles';
 import DropZoneFilledStage from './components/DropZoneFilledStage';
 import DropZoneCleanStage from './components/DropZoneCleanStage';
 import { Button } from '../UI/Button';
-import { MdCloudUpload } from 'react-icons/md';
 import { PiFilePlusBold } from 'react-icons/pi';
-
+import SendFiles from './components/SendFiles';
 // import DropZoneCleanStage from './components/DropZoneCleanStage';
 
 interface Props {
@@ -59,17 +58,9 @@ const DropZone: FC<Props> = ({
               <>
                 <DropZoneFilledStage files={files} />
                 <div className="flex max-w-30 flex-col items-center gap-4">
-                  {sendToServer && (
-                    <Button
-                      fullWidth
-                      noMargin
-                      onClick={triggerFileInput}
-                      variant="black"
-                    >
-                      <MdCloudUpload className="h-4 w-4 text-white" />
-                      Upload
-                    </Button>
-                  )}
+                  {/* If send files is enabled */}
+                  {sendToServer && <SendFiles />}
+                  {/* If multiple files is enabled */}
                   {multiple && (
                     <Button
                       fullWidth
