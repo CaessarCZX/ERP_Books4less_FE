@@ -34,7 +34,7 @@ const RegistrationSuccessPage: React.FC = () => {
                 />
               </svg>
             </span>
-            Go to login
+            Back to dashboard
           </Button>
         </Link>
       </div>

@@ -8,7 +8,11 @@ const FilesZone: FC = () => {
     AppConfig.uploadFiles.onUpdateBooksPage;
   return (
     <BoxUI>
-      <DropZone acceptedFiles={acceptedFiles} multiple={acceptMultipleFiles} />
+      <DropZone
+        sendToServer={false}
+        acceptedFiles={acceptedFiles}
+        multiple={acceptMultipleFiles}
+      />
     </BoxUI>
   );
 };

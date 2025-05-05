@@ -8,6 +8,10 @@ import AdminGuard from '../auth/auth.admin.guard';
 const GeneratorPO = lazy(() => import('../pages/GeneratePO/Generator'));
 const FilesHistory = lazy(() => import('../pages/FilesHistory/FilesHistory'));
 const UpdateBooks = lazy(() => import('../pages/UpdateISBN'));
+const Register = lazy(() => import('../pages/Register/Register'));
+const RegistrationSuccessPage = lazy(
+  () => import('../pages/RegistrationSuccess')
+);
 
 const SystemRouter = () => {
   return (
@@ -25,6 +29,11 @@ const SystemRouter = () => {
         <Route element={<DefaultLayout />}>
           <Route path={PrivateRoutes.UPDATE_BOOKS} element={<UpdateBooks />} />
         </Route>
+        <Route path={PrivateRoutes.REGISTER} element={<Register />} />
+        <Route
+          path={PrivateRoutes.NEW_USER}
+          element={<RegistrationSuccessPage />}
+        />
         {/* Only Admin page access */}
       </Route>
     </RoutesWithNotFound>

@@ -1,6 +1,7 @@
 import { MdCloudUpload } from 'react-icons/md';
 import AppConfig from '../../../config';
-import { useStateModal, useUser } from '../../../hooks';
+// import { useStateModal, useUser } from '../../../hooks';
+import { useStateModal } from '../../../hooks';
 import { Button } from '../../UI/Button';
 import { useUploadFiles } from '../hooks/useUploadFiles';
 import { useFiles } from '../hooks/useFiles';
@@ -12,7 +13,7 @@ const SendFiles = () => {
   const { openModal, closeModal, modalRef } = useStateModal();
   const { mutation, uploadFiles } = useUploadFiles();
   const { files } = useFiles();
-  const { id } = useUser();
+  // const { id } = useUser(); <===== enable for using with unique user id
 
   const onSubmit = async () => {
     const validator = new FilesValidatorService(files, maxSizeOfFile);
@@ -30,7 +31,8 @@ const SendFiles = () => {
     if (!isValidFile) return;
 
     openModal();
-    const res = await uploadFiles({ userId: id, files });
+    // const res = await uploadFiles({ userId: id, files }); <====== modify to use with unique user id
+    const res = await uploadFiles({ userId: '1234', files });
     if (!res) return;
   };
 

@@ -8,8 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import schema from '../../schemas/login-schema';
 import { ISignIn } from '../../../../models/user-model';
 import { useLogin } from '../../hooks/useLogin';
-import { Link } from 'react-router-dom';
-import { getPublicRoute } from '../../../../utils/Routes/getPublicRoute';
+// import { Link } from 'react-router-dom';
+// import { getPublicRoute } from '../../../../utils/Routes/getPublicRoute';
 
 const SignInForm: React.FC = () => {
   const {
@@ -64,13 +64,13 @@ const SignInForm: React.FC = () => {
                     </Button>
                   </div>
                   <p className="mt-4 mb-0 text-sm leading-normal">
-                    Do you have not an account?{' '}
+                    {/* Do you have not an account?{' '}
                     <Link
                       to={getPublicRoute('REGISTER')}
                       className="font-bold text-slate-700"
                     >
                       Sign Up
-                    </Link>
+                    </Link> */}
                   </p>
                 </form>
               </FormProvider>

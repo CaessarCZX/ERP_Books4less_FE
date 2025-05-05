@@ -2,13 +2,13 @@ export const PublicRoutes = {
   DEFAULTHOME: '',
   INDEX: '/',
   LOGIN: 'login',
-  REGISTER: 'register',
   NOTFOUND: '*',
-  NEW_USER: '/successNewUser',
 };
 
 export const PrivateRoutes = {
   SYSTEM: 'system',
+  REGISTER: 'register',
+  NEW_USER: '/successNewUser',
   GENERATE_PO: 'GeneratePO',
   FILES_HISTORY: 'FilesHistory',
   UPDATE_BOOKS: 'UpdateBooks',

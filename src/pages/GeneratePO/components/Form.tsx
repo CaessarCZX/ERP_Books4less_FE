@@ -20,14 +20,13 @@ import { useState } from 'react';
 import SuccessModal from '../../../components/UI/Modal';
 import { useStateModal } from '../../../hooks/useStateModal';
 import DownloadFilesZone from './DownloadFilesZone';
-import { RootState } from '../../../context/store';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+// import { useUser } from '../../../hooks';
 
 const Form = () => {
   const { t } = useTranslation();
   const { maxSizeOfFile } = AppConfig.uploadFiles.onGeneratorPOPage;
-  const userId = useSelector((state: RootState) => state.user.id);
+  // const { id } = useUser(); <====== add to config for unique user id
   const [purchaseOrder, setPurchaseOrder] = useState<PurchaseOrderGenerated>();
   const { modalRef, openModal, closeModal } = useStateModal();
   const { generatePO, mutation } = useGeneratePO();
@@ -50,7 +49,7 @@ const Form = () => {
     ).validateFiles();
     if (!isValidFile) return;
     openModal();
-    const result = await generatePO({ data, files, userId });
+    const result = await generatePO({ data, files, userId: '1234' }); // <=== modify to enable unique user id
     if (!result) return;
     setPurchaseOrder(result);
     resetForms();

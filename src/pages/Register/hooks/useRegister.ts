@@ -18,7 +18,7 @@ export const useRegister = () => {
       const registerData = new RegisterAdapter(data).getData();
       const res = await mutation.mutateAsync(registerData);
       setSuccess(res.message);
-      navigate('/successNewUser');
+      navigate('/system/successNewUser');
       return res;
     } catch (e: unknown) {
       if (e instanceof AxiosError) {
