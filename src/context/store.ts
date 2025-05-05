@@ -26,7 +26,7 @@ const persistConfig = {
   version: 1,
   storage,
   transforms: [encryptor],
-  whitelist: ['user'],
+  whitelist: ['user', 'language'],
 };
 
 const rootReducer = combineReducers({
