@@ -1,11 +1,11 @@
 import {
   IChangePassword,
   IChangePasswordResponse,
-  IRegisterUser,
   IRegisterUserResponse,
   ISignIn,
   ISignInResponse,
 } from '../models/user-model';
+import { IRegisterUserAdapter } from '../pages/Register/adapters/register-adapter';
 import projectApi from './api/service.config';
 
 class UserService {
@@ -22,7 +22,7 @@ class UserService {
   }
 
   static async signUp(
-    registerData: IRegisterUser
+    registerData: IRegisterUserAdapter
   ): Promise<IRegisterUserResponse> {
     const { data } = await projectApi.post<IRegisterUserResponse>(
       '/api/register',

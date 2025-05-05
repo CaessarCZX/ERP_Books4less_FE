@@ -5,6 +5,7 @@ import UserService from '../../../services/user-service';
 import { IRegisterUser } from '../../../models/user-model';
 import { useNavigate } from 'react-router-dom';
 import { getPublicRoute } from '../../../utils/Routes/getPublicRoute';
+import RegisterAdapter from '../adapters/register-adapter';
 
 export const useRegister = () => {
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ export const useRegister = () => {
 
   const register = async (data: IRegisterUser) => {
     try {
-      const res = await mutation.mutateAsync(data);
+      const registerData = new RegisterAdapter(data).getData();
+      const res = await mutation.mutateAsync(registerData);
       setSuccess(res.message);
       navigate(getPublicRoute('NEW_USER'));
       return res;
