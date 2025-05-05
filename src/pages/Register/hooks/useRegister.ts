@@ -4,7 +4,6 @@ import { AxiosError } from 'axios';
 import UserService from '../../../services/user-service';
 import { IRegisterUser } from '../../../models/user-model';
 import { useNavigate } from 'react-router-dom';
-import { getPublicRoute } from '../../../utils/Routes/getPublicRoute';
 import RegisterAdapter from '../adapters/register-adapter';
 
 export const useRegister = () => {
@@ -19,7 +18,7 @@ export const useRegister = () => {
       const registerData = new RegisterAdapter(data).getData();
       const res = await mutation.mutateAsync(registerData);
       setSuccess(res.message);
-      navigate(getPublicRoute('NEW_USER'));
+      navigate('/successNewUser');
       return res;
     } catch (e: unknown) {
       if (e instanceof AxiosError) {
