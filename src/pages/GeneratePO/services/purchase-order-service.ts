@@ -59,7 +59,7 @@ class PurchaseOrderService {
   }
 
   private addNotFoundMessage(messageArray: string[]) {
-    return messageArray.map((msg) => `ISBN not found: ${msg.item_id}`);
+    return messageArray.map((msg) => `ISBN not found: ${msg}`);
   }
 }
 
