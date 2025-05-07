@@ -49,7 +49,7 @@ class PurchaseOrderService {
     const unmatchedBooksWithMessage = this.addNotFoundMessage(unmatchedBooks);
     renderArrayNotifications('alert', unmatchedBooksWithMessage, {
       position: 'bottom-right',
-      autoClose: 60000,
+      autoClose: 3000,
     });
   }
 
