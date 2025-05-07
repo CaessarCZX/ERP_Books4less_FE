@@ -2,7 +2,8 @@
     "sideBar": {
         "t1-purchase": "Purchase Order Generator",
         "t2-update": "Update ISBN",
-        "t3-files": "Files history"
+        "t3-files": "Files history",
+        "t4-register": "Register user"
     },
 
     "header": {

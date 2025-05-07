@@ -1,7 +1,12 @@
 import { PrivateRoutes } from '../../../models/router-model';
 import { getPrivateRoute } from '../../../utils/Routes/getPrivateRoute';
 import { ISedebarItem } from '../Models/Sidebar.Model';
-import { IoIosDocument, IoIosCloudUpload, IoIosArchive } from 'react-icons/io';
+import {
+  IoIosDocument,
+  IoIosCloudUpload,
+  IoIosArchive,
+  IoMdPersonAdd,
+} from 'react-icons/io';
 
 // Las claves de title se usan como claves de traducción
 const MenuItems: ISedebarItem[] = [
@@ -24,7 +29,14 @@ const MenuItems: ISedebarItem[] = [
     url: getPrivateRoute('FILES_HISTORY'),
     icon: IoIosArchive,
     path: PrivateRoutes.FILES_HISTORY,
-    permissions: 'user',
+    permissions: 'admin',
+  },
+  {
+    title: 'sideBar.t4-register',
+    url: getPrivateRoute('REGISTER'),
+    icon: IoMdPersonAdd,
+    path: PrivateRoutes.REGISTER,
+    permissions: 'admin',
   },
 ];
 
