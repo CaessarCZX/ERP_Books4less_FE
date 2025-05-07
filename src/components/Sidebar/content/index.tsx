@@ -24,7 +24,7 @@ const MenuItems: ISedebarItem[] = [
     url: getPrivateRoute('FILES_HISTORY'),
     icon: IoIosArchive,
     path: PrivateRoutes.FILES_HISTORY,
-    permissions: 'user',
+    permissions: 'admin',
   },
 ];
 

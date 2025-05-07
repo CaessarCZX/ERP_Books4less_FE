@@ -49,7 +49,7 @@ class PurchaseOrderService {
     const unmatchedBooksWithMessage = this.addNotFoundMessage(unmatchedBooks);
     renderArrayNotifications('alert', unmatchedBooksWithMessage, {
       position: 'bottom-right',
-      autoClose: 60000,
+      autoClose: 3000,
     });
   }
 
@@ -59,7 +59,7 @@ class PurchaseOrderService {
   }
 
   private addNotFoundMessage(messageArray: string[]) {
-    return messageArray.map((msg) => `ISBN not found: ${msg}`);
+    return messageArray.map((msg) => `ISBN not found: ${msg.item_id}`);
   }
 }
 
