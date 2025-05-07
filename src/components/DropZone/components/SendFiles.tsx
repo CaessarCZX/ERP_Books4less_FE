@@ -20,12 +20,12 @@ const SendFiles = () => {
     const isValidFile = validator.validateFiles();
 
     // Only one file
-    if (files.length > 1) {
-      validator.renderNotifications([
-        "You can't upload more than one file per time",
-      ]);
-      return;
-    }
+    // if (files.length > 1) {
+    //   validator.renderNotifications([
+    //     "You can't upload more than one file per time",
+    //   ]);
+    //   return;
+    // }
 
     // If valid file
     if (!isValidFile) return;

@@ -5,6 +5,7 @@ import {
   IPurchaseOrder,
   IPurchaseOrderResponse,
   PurchaseOrderGenerated,
+  UnmatchetItems,
 } from '../Models/generate-po-model';
 import { renderArrayNotifications } from '../../../utils/Notification/renderArrayNotifications';
 
@@ -58,8 +59,10 @@ class PurchaseOrderService {
     return this.adapter.mapFormFieldsToPurchaseOrder(data, userId, files);
   }
 
-  private addNotFoundMessage(messageArray: string[]) {
-    return messageArray.map((msg) => `ISBN not found: ${msg}`);
+  private addNotFoundMessage(unmatchedArray: UnmatchetItems[]) {
+    return unmatchedArray.map(
+      (unmatchedItem) => `ISBN not found: ${unmatchedItem.item_id}`
+    );
   }
 }
 

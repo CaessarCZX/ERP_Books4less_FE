@@ -55,10 +55,15 @@ interface UpdatedFiles {
   stored_name: string;
 }
 
+export interface UnmatchetItems {
+  item_id: string;
+  source_files: string[];
+}
+
 interface ComparisonResults {
   total_reference_items: number;
   matched_items_count: number;
-  unmatched_items: [];
+  unmatched_items: UnmatchetItems[];
   total_processed_items: number;
   match_percentage: number;
 }
