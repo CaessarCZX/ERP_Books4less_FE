@@ -29,12 +29,12 @@ const AppConfig = {
   // Upload files config
   uploadFiles: {
     onGeneratorPOPage: {
-      maxSizeOfFile: 10 * MB_SIZE,
+      maxSizeOfFile: 50 * MB_SIZE,
       acceptedFiles: '.xlsx, .xls',
       acceptMultipleFiles: true,
     },
     onUpdateBooksPage: {
-      maxSizeOfFile: 30 * MB_SIZE,
+      maxSizeOfFile: 50 * MB_SIZE,
       acceptedFiles: '.xlsx, .xls',
       acceptMultipleFiles: false,
     },

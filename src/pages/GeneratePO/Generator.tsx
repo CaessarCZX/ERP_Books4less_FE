@@ -4,7 +4,7 @@ import FormZone from './components/FormZone';
 
 const GeneratorPO = () => {
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-5">
       <FilesProvider>
         <FilesZone />
         <FormZone />
