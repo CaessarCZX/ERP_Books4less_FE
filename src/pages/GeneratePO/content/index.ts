@@ -28,7 +28,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.purchaseOrderInformation,
         id: 'po-i',
-        placeholder: '',
+        placeholder: 'MO071205',
         key: 11,
       },
       {
@@ -50,7 +50,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.sellerName,
         id: 'sell-n',
-        placeholder: '',
+        placeholder: 'Hachette Book Group USA',
         key: 13,
       },
       {
@@ -58,7 +58,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.sellerPO,
         id: 'sell-p',
-        placeholder: '',
+        placeholder: 'P.O. Box 8828',
         key: 14,
       },
       {
@@ -66,7 +66,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.sellerAddress,
         id: 'sell-a',
-        placeholder: '',
+        placeholder: 'Boston, MA 02114-8828',
         key: 15,
       },
     ],
@@ -80,7 +80,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.enterpriseName,
         id: 'ship-n',
-        placeholder: '',
+        placeholder: 'Books For Less LLC',
         key: 16,
       },
       {
@@ -88,7 +88,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.enterpriseAddress,
         id: 'ship-a',
-        placeholder: '',
+        placeholder: '1859 Dacusville Hwy.',
         key: 17,
       },
       {
@@ -96,7 +96,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.enterpriseData,
         id: 'ship-d',
-        placeholder: '',
+        placeholder: 'Easley, SC 29640',
         key: 18,
       },
     ],
@@ -110,7 +110,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.shippingMethod,
         id: 'ent-s',
-        placeholder: '',
+        placeholder: 'Email rousting form: indbounds@bks4less.com',
         key: 19,
       },
       {
@@ -118,7 +118,7 @@ export const FormContent: IForm[] = [
         type: 'text',
         name: PurchaseOrderFormFieldNames.paymentTerms,
         id: 'ent-p',
-        placeholder: '',
+        placeholder: 'Net 90 Days',
         key: 20,
       },
     ],
@@ -132,6 +132,6 @@ export const FormContentPercentage: IFields & { step: string } = {
   step: '0.01',
   name: PurchaseOrderFormFieldNames.discountPercent,
   id: 'dis-per',
-  placeholder: '',
+  placeholder: '9',
   key: 21,
 };

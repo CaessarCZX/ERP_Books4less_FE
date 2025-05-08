@@ -78,6 +78,7 @@ const Form = () => {
                       label={t(field.label)}
                       type={field.type}
                       id={field.id}
+                      placeholder={field.placeholder}
                       name={field.name}
                     />
                   </div>
@@ -88,12 +89,14 @@ const Form = () => {
         })}
         <fieldset className="flex items-center justify-between md:flex-wrap">
           {(() => {
-            const { label, type, step, id, name } = FormContentPercentage;
+            const { label, type, step, id, name, placeholder } =
+              FormContentPercentage;
             return (
               <InputForm
                 label={t(label)}
                 type={type}
                 step={step}
+                placeholder={placeholder}
                 id={id}
                 name={name}
               />
