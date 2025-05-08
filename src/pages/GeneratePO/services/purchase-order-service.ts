@@ -44,15 +44,15 @@ class PurchaseOrderService {
     return this.adapter.formDataGenerator(data);
   }
 
-  // generateNotFoundBooksMessages(purchaseOrderResponse: IPurchaseOrderResponse) {
-  //   const unmatchedBooks =
-  //     purchaseOrderResponse.comparison_results.unmatched_items;
-  //   const unmatchedBooksWithMessage = this.addNotFoundMessage(unmatchedBooks);
-  //   renderArrayNotifications('alert', unmatchedBooksWithMessage, {
-  //     position: 'bottom-right',
-  //     autoClose: 3000,
-  //   });
-  // }
+  generateNotFoundBooksMessages(purchaseOrderResponse: IPurchaseOrderResponse) {
+    const unmatchedBooks =
+      purchaseOrderResponse.comparison_results.unmatched_items;
+    const unmatchedBooksWithMessage = this.addNotFoundMessage(unmatchedBooks);
+    renderArrayNotifications('alert', unmatchedBooksWithMessage, {
+      position: 'bottom-right',
+      autoClose: 3000,
+    });
+  }
 
   private normalizeData() {
     const { data, userId, files } = this.inputData;
