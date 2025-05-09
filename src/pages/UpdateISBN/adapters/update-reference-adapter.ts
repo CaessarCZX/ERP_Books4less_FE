@@ -9,7 +9,7 @@ export class UpdateBooksAdapter {
     formData.append('user_id', updateBooksRequest.userId);
     // formData.append('file', updateBooksRequest.files); <--- for only one file
     updateBooksRequest.files.forEach((file) => {
-      formData.append('files', file);
+      formData.append('file', file);
     });
     return formData;
   }
