@@ -34,7 +34,7 @@ class UpdateBooksService {
 
   private normalizeData() {
     const { userId, files } = this.inputData;
-    return this.adapter.mapToUpdateBooks(userId, files[0]);
+    return this.adapter.mapToUpdateBooks(userId, files);
   }
 
   generateFormData() {
