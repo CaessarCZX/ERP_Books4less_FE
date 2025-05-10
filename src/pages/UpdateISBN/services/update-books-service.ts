@@ -18,11 +18,9 @@ class UpdateBooksService {
   static async postUpdateBooks(
     formData: FormData
   ): Promise<IUpdateReferenceResponse> {
-    const { data } = await projectApi.post('/api/upload-reference', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    // después: no explícito Content-Type
+    const { data } = await projectApi.post('/api/upload-reference', formData);
+
     return data;
   }
 
