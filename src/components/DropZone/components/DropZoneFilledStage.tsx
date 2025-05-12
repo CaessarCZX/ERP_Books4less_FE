@@ -27,7 +27,10 @@ const DropZoneFilledStage: FC<Props> = ({ files }) => {
           </span>
           <button
             className="absolute -top-2 -right-3 cursor-pointer rounded-full bg-red-400 p-0.5 hover:scale-110"
-            onClick={() => removeFile(index)}
+            onClick={(e) => {
+              e.stopPropagation(); // ← evita que el label “cíquelee” al input de archivos
+              removeFile(index);
+            }}
           >
             <IoMdClose className="h-5 w-5 fill-white" />
           </button>
