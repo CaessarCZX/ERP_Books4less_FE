@@ -8,10 +8,9 @@ export class UpdateBooksAdapter {
     const formData = new FormData();
     formData.append('user_id', updateBooksRequest.userId);
 
-    // Solo se sube un archivo, el primero
-    if (updateBooksRequest.files.length > 0) {
-      formData.append('file', updateBooksRequest.files[0]);
-    }
+    updateBooksRequest.files.forEach((file) => {
+      formData.append('files', file);
+    });
 
     return formData;
   }
